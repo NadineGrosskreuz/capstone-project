@@ -10,8 +10,7 @@
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
-    "prepare": "husky install",
-    "husky": "npm run prettier:write && npm run eslint"
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.1.6",
