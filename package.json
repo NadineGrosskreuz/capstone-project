@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier:check": "npx prettier --ignore-unknown --check .",
-    "prettier:write": "npx prettier --ignore-unknown --write .",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
     "prepare": "husky install",
     "husky": "npm run prettier:write && npm run eslint"
