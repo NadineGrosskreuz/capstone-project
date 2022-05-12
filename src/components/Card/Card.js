@@ -1,9 +1,11 @@
+import { CardContainer, CardCategory, CardName, CardAddress } from './Card.styled.js';
+
 export default function Card({ entries }) {
 	return (
-		<>
-			<p>{entries.category}</p>
-			<h2>{entries.name}</h2>
-			<p>{entries.address}</p>
-		</>
+		<CardContainer>
+			<CardCategory>{entries.category}</CardCategory>
+			<CardName>{entries.name}</CardName>
+			<CardAddress>{entries.address}</CardAddress>
+		</CardContainer>
 	);
 }
