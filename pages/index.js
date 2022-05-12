@@ -1,5 +1,5 @@
 import { getEntries } from '../src/services/get-entry';
-import Card from '../src/components/Card';
+import Card from '../src/components/Card/Card';
 
 export function getStaticProps() {
 	const entries = getEntries();
