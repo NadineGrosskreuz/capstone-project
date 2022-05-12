@@ -27,7 +27,3 @@ const cardProps = {
 export function Default() {
 	return <Card {...cardProps} />;
 }
-
-/*export function Default() {
-	<Card {...cardProps} />;
-}*/
