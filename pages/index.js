@@ -1,6 +1,6 @@
 import { getEntries } from '../src/services/get-entry';
 import Card from '../src/components/Card/Card';
-import styled from 'styled-components';
+import { PageContainer } from '../src/components/UI/PageContainer.styled';
 
 export function getStaticProps() {
 	const entries = getEntries();
@@ -21,7 +21,3 @@ export default function Home({ entries }) {
 		</>
 	);
 }
-
-const PageContainer = styled.main`
-	margin: 10px 20px 10px 20px;
-`;
