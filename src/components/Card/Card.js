@@ -1,9 +1,9 @@
-export default function Card() {
+export default function Card({ entries }) {
 	return (
 		<>
-			<p>Flohmarkt</p>
-			<h2>Faust</h2>
-			<p>Zur Bettfedernfabrik 3, 30451 Hannover</p>
+			<p>{entries.category}</p>
+			<h2>{entries.name}</h2>
+			<p>{entries.address}</p>
 		</>
 	);
 }
