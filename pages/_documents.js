@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
 	}
 	render() {
 		return (
-			<Html>
+			<Html lang="de">
 				<Head>
 					{this.props.styleTags}
 					<link

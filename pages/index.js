@@ -13,11 +13,8 @@ export function getStaticProps() {
 
 export default function Home({ entries }) {
 	return (
-		<>
-			<title>Home</title>
-			<PageContainer>
-				<Card entries={entries} />;
-			</PageContainer>
-		</>
+		<PageContainer>
+			<Card entries={entries} />;
+		</PageContainer>
 	);
 }
