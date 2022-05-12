@@ -11,7 +11,7 @@
     "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
