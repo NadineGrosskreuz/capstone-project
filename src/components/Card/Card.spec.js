@@ -16,7 +16,7 @@ describe('Card', () => {
 		);
 
 		const category = screen.getByText(/Flohmarkt/i);
-		const name = screen.getByText(/Faust/i);
+		const name = screen.getByRole('heading', { name: /Faust/i });
 		const address = screen.getByText(/Zur Bettfedernfabrik 3, 30451 Hannover/i);
 
 		expect(category).toBeInTheDocument();
