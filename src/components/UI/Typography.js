@@ -27,7 +27,7 @@ const StyledH1 = styled.h1``;
 const StyledH2 = styled.h2`
 	font-size: 2.1rem;
 	text-transform: uppercase;
-	padding-bottom: 7px;
+	padding-bottom: 9px;
 `;
 
 const StyledP = styled.p`
