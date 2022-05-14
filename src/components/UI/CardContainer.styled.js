@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-const CardContainer = styled.article`
+const CardContainer = styled.section`
 	background-color: #ffa375;
-	padding: 10px;
+	padding: 20px;
 	margin: 20px;
 	border-radius: 20px;
+	min-width: 330px;
 	max-width: 400px;
 	display: flex;
 	flex-direction: column;
