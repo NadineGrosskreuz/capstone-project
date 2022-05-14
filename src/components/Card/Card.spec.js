@@ -6,12 +6,10 @@ describe('Card', () => {
 	it('renders category,name and address', () => {
 		render(
 			<Card
-				entries={{
-					id: '1234',
-					category: 'Flohmarkt',
-					name: 'Faust',
-					address: 'Zur Bettfedernfabrik 3, 30451 Hannover',
-				}}
+				id="1234"
+				category="Flohmarkt"
+				name="Faust"
+				address="Zur Bettfedernfabrik 3, 30451 Hannover"
 			/>
 		);
 
