@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 export default function Typography({ children, variant, component, ...rest }) {
 	switch (variant) {
-		case 'h1':
-			return (
-				<StyledH1 {...rest} as={component}>
-					{children}
-				</StyledH1>
-			);
 		case 'h2':
 			return (
 				<StyledH2 {...rest} as={component}>
@@ -23,7 +17,6 @@ export default function Typography({ children, variant, component, ...rest }) {
 	}
 }
 
-const StyledH1 = styled.h1``;
 const StyledH2 = styled.h2`
 	font-size: 2.1rem;
 	text-transform: uppercase;
