@@ -1,13 +1,12 @@
 import { CardContainer } from '../UI/CardContainer.styled';
-import { Paragraph } from '../UI/Paragraph.styled';
-import { HeadlineTwo } from '../UI/HeadlineTwo.styled';
+import Typography from '../UI/Typography';
 
 export default function Card({ entries }) {
 	return (
 		<CardContainer>
-			<Paragraph>{entries.category}</Paragraph>
-			<HeadlineTwo>{entries.name}</HeadlineTwo>
-			<Paragraph>{entries.address}</Paragraph>
+			<Typography variant="p">{entries.category}</Typography>
+			<Typography variant="h2">{entries.name}</Typography>
+			<Typography variant="p">{entries.address}</Typography>
 		</CardContainer>
 	);
 }
