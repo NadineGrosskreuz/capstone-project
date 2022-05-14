@@ -14,7 +14,7 @@ export function getStaticProps() {
 export default function Home({ entries }) {
 	return (
 		<PageContainer>
-			<Card entries={entries} />;
+			<Card entries={entries} />
 		</PageContainer>
 	);
 }
