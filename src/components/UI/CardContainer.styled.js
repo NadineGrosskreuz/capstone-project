@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardContainer = styled.article`
+const CardContainer = styled.li`
 	background-color: #ffa375;
 	padding: 20px;
 	margin: 20px;

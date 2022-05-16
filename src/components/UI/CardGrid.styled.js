@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardGrid = styled.section`
+const CardGrid = styled.ul`
 	display: flex;
 	flex-direction: column;
 `;
