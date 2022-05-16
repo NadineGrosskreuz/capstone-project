@@ -1,6 +1,6 @@
 import { getEntries } from '../src/services/get-entry';
-import Card from '../src/components/Card/Card';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
+import CardList from '../src/components/CardList/CardList';
 
 export function getStaticProps() {
 	const entries = getEntries();
@@ -14,7 +14,7 @@ export function getStaticProps() {
 export default function Home({ entries }) {
 	return (
 		<PageContainer>
-			<Card entries={entries} />
+			<CardList entries={entries} />
 		</PageContainer>
 	);
 }
