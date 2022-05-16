@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const Accordion = styled.button`
-	background-color: #573be9;
+	background-color: #342293;
 	font-size: 1.6rem;
+	color: white;
 	padding: 5px;
 	margin-bottom: 12px;
 	border-radius: 20px;
