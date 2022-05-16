@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import CardList from './CardList';
 
 describe('CardList', () => {
-	it('renders three entries each with all the information', () => {
+	it('renders three listitems', () => {
 		render(
 			<CardList
 				entries={[

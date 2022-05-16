@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Accordion = styled.button`
+const Button = styled.button`
 	background-color: #342293;
 	font-size: 1.6rem;
 	color: white;
@@ -14,4 +14,4 @@ const Accordion = styled.button`
 	justify-content: center;
 `;
 
-export { Accordion };
+export { Button };
