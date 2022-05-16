@@ -10,6 +10,10 @@ export default function CardList({ entries }) {
 					category={entry.category}
 					name={entry.name}
 					address={entry.address}
+					products={entry.products}
+					information={entry.information}
+					visited={entry.visited}
+					rating={entry.rating}
 				/>
 			))}
 		</CardGrid>
