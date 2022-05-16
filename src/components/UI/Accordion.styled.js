@@ -7,7 +7,10 @@ const Accordion = styled.button`
 	margin-bottom: 12px;
 	border-radius: 20px;
 	border: none;
-	width: 20%;
+	width: 55%;
+	display: flex;
+	align-self: center;
+	justify-content: center;
 `;
 
 export { Accordion };
