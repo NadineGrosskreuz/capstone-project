@@ -13,7 +13,7 @@ export default function Card({ category, name, address, products, information, v
 			<Typography variant="p">{category}</Typography>
 			<Typography variant="h2">{name}</Typography>
 			<Typography variant="p">{address}</Typography>
-			<Accordion>{show ? '-' : '+'}</Accordion>
+			<Accordion>{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}</Accordion>
 			{show && <Typography variant="p">{products}</Typography>}
 			{show && <Typography variant="p">{information}</Typography>}
 			{show && <Typography variant="p">{visited}</Typography>}
