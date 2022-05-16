@@ -46,6 +46,6 @@ describe('CardList', () => {
 		);
 
 		const entryArray = screen.getAllByRole('listitem');
-		expect(entryArray.length).toBe(3);
+		expect(entryArray).toHaveLength(3);
 	});
 });
