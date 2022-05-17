@@ -5,8 +5,7 @@ const CardContainer = styled.li`
 	padding: 20px;
 	margin: 20px;
 	border-radius: 20px;
-	min-width: 330px;
-	max-width: 400px;
+	width: 33rem;
 	display: flex;
 	flex-direction: column;
 `;
