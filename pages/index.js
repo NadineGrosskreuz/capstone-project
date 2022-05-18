@@ -3,6 +3,7 @@ import { getEntries } from '../src/services/get-entry';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
 import CardList from '../src/components/CardList/CardList';
 import Form from '../src/components/Form/Form';
+import Modal from '../src/components/Form/Modal';
 
 export function getStaticProps() {
 	const entries = getEntries();
@@ -15,6 +16,14 @@ export function getStaticProps() {
 
 export default function Home() {
 	const [entries, setEntries] = useState(getEntries);
+	const [modalState, setModalState] = useState(false);
+
+	const modalHide = () => {
+		setModalState(false);
+	};
+	const modalShow = () => {
+		setModalState(true);
+	};
 	const addEntry = newentry => {
 		setEntries([
 			...entries,
@@ -32,7 +41,8 @@ export default function Home() {
 
 	return (
 		<PageContainer>
-			<Form onAddEntry={addEntry} />
+			<Modal visibility={modalState} modalHide={modalHide} />
+			<Form modalShow={modalShow} onAddEntry={addEntry} />
 			<CardList entries={entries} />
 		</PageContainer>
 	);

@@ -2,10 +2,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function Form({ onAddEntry }) {
+export default function Form({ onAddEntry, modalShow }) {
 	const onSubmit = (data, event) => {
 		onAddEntry(data);
 		event.target.reset();
+		modalShow();
 	};
 
 	const {
