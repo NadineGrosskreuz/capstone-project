@@ -20,6 +20,7 @@
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-hook-form": "^7.31.1",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
@@ -32,6 +33,9 @@
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "eslint": "8.15.0",
     "eslint-config-next": "^12.1.6",
@@ -45,9 +49,6 @@
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "lint-staged": "^12.4.1",
-    "prettier": "^2.6.2",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "babel-jest": "^28.1.0"
+    "prettier": "^2.6.2"
   }
 }
