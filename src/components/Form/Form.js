@@ -1,6 +1,13 @@
 /* eslint-disable react/jsx-child-element-spacing */
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { FormStyled } from '../UI/Form/Form.styled';
+import { Fieldset } from '../UI/Form/Fieldset.styled';
+import { Legend } from '../UI/Form/Legend.styled';
+import { Input } from '../UI/Form/Input.styled';
+import { Label } from '../UI/Form/Label.styled';
+import { Button } from '../UI/Button.styled';
+import { Error } from '../UI/Form/Error.styled';
 
 export default function Form({ onAddEntry, modalShow }) {
 	const onSubmit = (data, event) => {
@@ -16,164 +23,198 @@ export default function Form({ onAddEntry, modalShow }) {
 	} = useForm();
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			<fieldset>
-				<legend>Kategorie</legend>
-				<input
+		<FormStyled onSubmit={handleSubmit(onSubmit)}>
+			<Fieldset>
+				<Legend>Kategorie</Legend>
+				<Input
 					type="radio"
 					value="Flohmarkt"
 					name="category"
 					id="kategorie_flohmarkt"
 					{...register('category')}
 				/>
-				<label htmlFor="kategorie_flohmarkt">Flohmarkt</label>
-				<input
+				<Label htmlFor="kategorie_flohmarkt" variant="radio">
+					Flohmarkt
+				</Label>
+				<Input
 					type="radio"
 					value="Laden"
 					name="category"
 					id="kategorie_laden"
 					{...register('category')}
 				/>
-				<label htmlFor="kategorie_laden">Laden</label>
-			</fieldset>
+				<Label htmlFor="kategorie_laden" variant="radio">
+					Laden
+				</Label>
+			</Fieldset>
 
-			<fieldset>
-				<label htmlFor="name">Name (erforderlich)</label>
-				<input
+			<Fieldset>
+				<Label htmlFor="name" variant="bold">
+					Name (erforderlich)
+				</Label>
+				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					name="name"
 					id="name"
+					variant="text"
 					{...register('name', { required: true, maxLength: 50 })}
 				/>
 				{errors.name && errors.name.type === 'required' && (
-					<span>Bitte trage einen Namen ein</span>
+					<Error>Bitte trage einen Namen ein!</Error>
 				)}
 				{errors.name && errors.name.type === 'maxLength' && (
-					<span>Bitte verwende weniger Zeichen</span>
+					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
-			</fieldset>
+			</Fieldset>
 
-			<fieldset>
-				<label htmlFor="adresse">Adresse</label>
-				<input
+			<Fieldset>
+				<Label htmlFor="adresse" variant="bold">
+					Adresse
+				</Label>
+				<Input
 					type="text"
 					name="address"
 					id="adresse"
+					variant="text"
 					{...register('address', { maxLength: 150 })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
-					<span>Bitte verwende weniger Zeichen</span>
+					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
-			</fieldset>
+			</Fieldset>
 
-			<fieldset>
-				<legend>Produkte</legend>
-				<input
+			<Fieldset>
+				<Legend>Produkte</Legend>
+				<Input
 					type="checkbox"
 					value="Kleidung"
 					name="products"
 					id="produkte_kleidung"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_kleidung">Kleidung</label>
-				<input
+				<Label htmlFor="produkte_kleidung" variant="checkbox">
+					Kleidung
+				</Label>
+				<Input
 					type="checkbox"
 					value="Deko"
 					name="products"
 					id="produkte_deko"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_deko">Deko</label>
-				<input
+				<Label htmlFor="produkte_deko" variant="checkbox">
+					Deko
+				</Label>
+				<Input
 					type="checkbox"
 					value="Haushaltswaren"
 					name="product_haushaltswaren"
 					id="produkte_haushaltswaren"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_haushaltswaren">Haushaltswaren</label>
-				<input
+				<Label htmlFor="produkte_haushaltswaren" variant="checkbox">
+					Haushaltswaren
+				</Label>
+				<Input
 					type="checkbox"
 					value="Medien"
 					name="product_medien"
 					id="produkte_medien"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_medien">Medien</label>
-				<input
+				<Label htmlFor="produkte_medien" variant="checkbox">
+					Medien
+				</Label>
+				<Input
 					type="checkbox"
 					value="Antiquitäten"
 					name="products"
 					id="produkte_antiquitäten"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_antiquitäten">Antiquitäten</label>
-				<input
+				<Label htmlFor="produkte_antiquitäten" variant="checkbox">
+					Antiquitäten
+				</Label>
+				<Input
 					type="checkbox"
 					value="Spielsachen"
 					name="products"
 					id="produkte_spielsachen"
 					{...register('products')}
 				/>
-				<label htmlFor="produkte_spielsachen">Spielsachen</label>
-			</fieldset>
+				<Label htmlFor="produkte_spielsachen" variant="checkbox">
+					Spielsachen
+				</Label>
+			</Fieldset>
 
-			<fieldset>
-				<legend>Weitere Infos</legend>
-				<label htmlFor="information">Weitere Infos</label>
-				<input
+			<Fieldset>
+				<Label htmlFor="information" variant="bold">
+					Weitere Infos
+				</Label>
+				<Input
 					type="text"
 					name="information"
 					id="information"
+					variant="text"
 					{...register('information', { maxLength: 300 })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
-					<span>Bitte verwende weniger Zeichen</span>
+					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
-			</fieldset>
+			</Fieldset>
 
-			<fieldset>
-				<legend>Schon besucht?</legend>
-				<input
+			<Fieldset>
+				<Legend>Schon besucht?</Legend>
+				<Input
 					type="radio"
 					value="ja"
 					name="visited"
 					id="besucht_ja"
 					{...register('visited')}
 				/>
-				<label htmlFor="besucht_ja">Ich war schon da</label>
-				<input
+				<Label htmlFor="besucht_ja" variant="radio">
+					Ich war schon da
+				</Label>
+				<Input
 					type="radio"
 					value="nein"
 					name="visited"
 					id="besucht_nein"
 					{...register('visited')}
 				/>
-				<label htmlFor="besucht_nein">Ich war noch nicht da</label>
-			</fieldset>
+				<Label htmlFor="besucht_nein" variant="radio">
+					Ich war noch nicht da
+				</Label>
+			</Fieldset>
 
-			<fieldset>
-				<legend>Bewertung</legend>
-				<input
+			<Fieldset>
+				<Legend>Bewertung</Legend>
+				<Input
 					type="radio"
 					value="mag ich"
 					name="rating"
 					id="bewertung_gut"
 					{...register('rating')}
 				/>
-				<label htmlFor="bewertung_gut">Mag ich!</label>
-				<input
+				<Label htmlFor="bewertung_gut" variant="radio">
+					Mag ich!
+				</Label>
+				<Input
 					type="radio"
 					value="nicht mein Fall"
 					name="rating"
 					id="bewertung_schlecht"
 					{...register('rating')}
 				/>
-				<label htmlFor="bewertung_schlecht">Nicht mein Fall!</label>
-			</fieldset>
+				<Label htmlFor="bewertung_schlecht" variant="radio">
+					Nicht mein Fall!
+				</Label>
+			</Fieldset>
 
-			<button type="submit">Eintrag hinzufügen</button>
-		</form>
+			<Button type="submit" variant="addentry">
+				Eintrag hinzufügen
+			</Button>
+		</FormStyled>
 	);
 }
