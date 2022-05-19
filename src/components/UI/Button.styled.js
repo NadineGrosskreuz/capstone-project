@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Button = styled.button`
 	background-color: #342293;
@@ -12,6 +12,7 @@ const Button = styled.button`
 	display: flex;
 	align-self: center;
 	justify-content: center;
+	${({ variant }) => variant == 'addentry' && css` margin-top: 10px;}`}
 `;
 
 export { Button };
