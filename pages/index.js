@@ -4,6 +4,7 @@ import { PageContainer } from '../src/components/UI/PageContainer.styled';
 import CardList from '../src/components/CardList/CardList';
 import Form from '../src/components/Form/Form';
 import Modal from '../src/components/Form/Modal';
+import { nanoid } from 'nanoid';
 
 export function getStaticProps() {
 	const entries = getEntries();
@@ -28,6 +29,7 @@ export default function Home() {
 		setEntries([
 			...entries,
 			{
+				id: nanoid(),
 				category: newentry.category,
 				name: newentry.name,
 				address: newentry.address,

@@ -17,6 +17,7 @@
     "test:watch": "jest --env=jsdom --watch"
   },
   "dependencies": {
+    "nanoid": "^3.3.4",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
