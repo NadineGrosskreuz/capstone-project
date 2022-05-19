@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import { getEntries } from '../src/services/get-entry';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
 import CardList from '../src/components/CardList/CardList';
 import Form from '../src/components/Form/Form';
 import Modal from '../src/components/Form/Modal';
-import { nanoid } from 'nanoid';
 
 export function getStaticProps() {
 	const initialEntries = getEntries();
@@ -41,11 +41,15 @@ export default function Home({ initialEntries }) {
 		]);
 	};
 
+	const deleteEntry = id => {
+		setEntries(entries.filter(entry => entry.id !== id));
+	};
+
 	return (
 		<PageContainer>
 			<Modal visibility={modalState} modalHide={modalHide} />
 			<Form modalShow={modalShow} onAddEntry={addEntry} />
-			<CardList entries={entries} />
+			<CardList entries={entries} onDeleteEntry={deleteEntry} />
 		</PageContainer>
 	);
 }

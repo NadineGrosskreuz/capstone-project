@@ -1,7 +1,7 @@
 import Card from '../Card/Card';
 import { CardGrid } from '../UI/CardGrid.styled';
 
-export default function CardList({ entries }) {
+export default function CardList({ entries, onDeleteEntry }) {
 	return (
 		<CardGrid>
 			{entries.map(entry => (
@@ -14,6 +14,7 @@ export default function CardList({ entries }) {
 					information={entry.information}
 					visited={entry.visited}
 					rating={entry.rating}
+					onDeleteEntry={onDeleteEntry}
 				/>
 			))}
 		</CardGrid>
