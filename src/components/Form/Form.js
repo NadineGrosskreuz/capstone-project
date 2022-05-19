@@ -29,20 +29,13 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					type="radio"
 					value="Flohmarkt"
-					name="category"
 					id="kategorie_flohmarkt"
 					{...register('category')}
 				/>
 				<Label htmlFor="kategorie_flohmarkt" variant="radio">
 					Flohmarkt
 				</Label>
-				<Input
-					type="radio"
-					value="Laden"
-					name="category"
-					id="kategorie_laden"
-					{...register('category')}
-				/>
+				<Input type="radio" value="Laden" id="kategorie_laden" {...register('category')} />
 				<Label htmlFor="kategorie_laden" variant="radio">
 					Laden
 				</Label>
@@ -55,7 +48,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
-					name="name"
 					id="name"
 					variant="text"
 					{...register('name', { required: true, maxLength: 50 })}
@@ -75,7 +67,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
-					name="address"
 					id="adresse"
 					variant="text"
 					{...register('address', { maxLength: 150 })}
@@ -90,27 +81,19 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					type="checkbox"
 					value="Kleidung"
-					name="products"
 					id="produkte_kleidung"
 					{...register('products')}
 				/>
 				<Label htmlFor="produkte_kleidung" variant="checkbox">
 					Kleidung
 				</Label>
-				<Input
-					type="checkbox"
-					value="Deko"
-					name="products"
-					id="produkte_deko"
-					{...register('products')}
-				/>
+				<Input type="checkbox" value="Deko" id="produkte_deko" {...register('products')} />
 				<Label htmlFor="produkte_deko" variant="checkbox">
 					Deko
 				</Label>
 				<Input
 					type="checkbox"
 					value="Haushaltswaren"
-					name="product_haushaltswaren"
 					id="produkte_haushaltswaren"
 					{...register('products')}
 				/>
@@ -120,7 +103,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					type="checkbox"
 					value="Medien"
-					name="product_medien"
 					id="produkte_medien"
 					{...register('products')}
 				/>
@@ -130,7 +112,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					type="checkbox"
 					value="Antiquitäten"
-					name="products"
 					id="produkte_antiquitäten"
 					{...register('products')}
 				/>
@@ -140,7 +121,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					type="checkbox"
 					value="Spielsachen"
-					name="products"
 					id="produkte_spielsachen"
 					{...register('products')}
 				/>
@@ -156,7 +136,6 @@ export default function Form({ onAddEntry, modalShow }) {
 				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
-					name="information"
 					id="information"
 					variant="text"
 					{...register('information', { maxLength: 300 })}
@@ -168,23 +147,11 @@ export default function Form({ onAddEntry, modalShow }) {
 
 			<Fieldset>
 				<Legend>Schon besucht?</Legend>
-				<Input
-					type="radio"
-					value="ja"
-					name="visited"
-					id="besucht_ja"
-					{...register('visited')}
-				/>
+				<Input type="radio" value="ja" id="besucht_ja" {...register('visited')} />
 				<Label htmlFor="besucht_ja" variant="radio">
 					Ich war schon da
 				</Label>
-				<Input
-					type="radio"
-					value="nein"
-					name="visited"
-					id="besucht_nein"
-					{...register('visited')}
-				/>
+				<Input type="radio" value="nein" id="besucht_nein" {...register('visited')} />
 				<Label htmlFor="besucht_nein" variant="radio">
 					Ich war noch nicht da
 				</Label>
@@ -192,20 +159,13 @@ export default function Form({ onAddEntry, modalShow }) {
 
 			<Fieldset>
 				<Legend>Bewertung</Legend>
-				<Input
-					type="radio"
-					value="mag ich"
-					name="rating"
-					id="bewertung_gut"
-					{...register('rating')}
-				/>
+				<Input type="radio" value="mag ich" id="bewertung_gut" {...register('rating')} />
 				<Label htmlFor="bewertung_gut" variant="radio">
 					Mag ich!
 				</Label>
 				<Input
 					type="radio"
 					value="nicht mein Fall"
-					name="rating"
 					id="bewertung_schlecht"
 					{...register('rating')}
 				/>

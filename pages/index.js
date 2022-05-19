@@ -7,16 +7,16 @@ import Modal from '../src/components/Form/Modal';
 import { nanoid } from 'nanoid';
 
 export function getStaticProps() {
-	const entries = getEntries();
+	const initialEntries = getEntries();
 	return {
 		props: {
-			entries,
+			initialEntries,
 		},
 	};
 }
 
-export default function Home() {
-	const [entries, setEntries] = useState(getEntries);
+export default function Home({ initialEntries }) {
+	const [entries, setEntries] = useState(initialEntries);
 	const [modalState, setModalState] = useState(false);
 
 	const modalHide = () => {
