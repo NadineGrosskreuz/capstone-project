@@ -73,6 +73,7 @@ export default function Form({ onAddEntry, modalShow }) {
 					Adresse
 				</Label>
 				<Input
+					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					name="address"
 					id="adresse"
@@ -153,6 +154,7 @@ export default function Form({ onAddEntry, modalShow }) {
 					Weitere Infos
 				</Label>
 				<Input
+					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					name="information"
 					id="information"
