@@ -23,11 +23,11 @@ export default function Card({
 	};
 
 	return (
-		<CardContainer onClick={handleOpen}>
+		<CardContainer>
 			<Typography variant="p">{category}</Typography>
 			<Typography variant="h2">{name}</Typography>
 			<Typography variant="p">{address}</Typography>
-			<Button>{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}</Button>
+			<Button onClick={handleOpen}>{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}</Button>
 			{show && <Typography variant="p">{products}</Typography>}
 			{show && <Typography variant="p">{information}</Typography>}
 			{show && <Typography variant="p">{visited}</Typography>}

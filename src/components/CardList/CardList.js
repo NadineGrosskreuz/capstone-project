@@ -7,6 +7,7 @@ export default function CardList({ entries, onDeleteEntry }) {
 			{entries.map(entry => (
 				<Card
 					key={entry.id}
+					id={entry.id}
 					category={entry.category}
 					name={entry.name}
 					address={entry.address}
