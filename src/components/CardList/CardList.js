@@ -1,7 +1,9 @@
 import Card from '../Card/Card';
 import { CardGrid } from '../UI/CardGrid.styled';
+import useStore from '../useStore';
 
-export default function CardList({ entries, onDeleteEntry }) {
+export default function CardList({ onDeleteEntry }) {
+	const entries = useStore(state => state.entries);
 	return (
 		<CardGrid>
 			{entries.map(entry => (

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useStore from '../useStore';
 import { Button } from '../UI/Button.styled';
 import { CardContainer } from '../UI/CardContainer.styled';
 import Typography from '../UI/Typography';
@@ -12,15 +13,15 @@ export default function Card({
 	information,
 	visited,
 	rating,
-	onDeleteEntry,
 }) {
 	const [show, setShow] = useState(false);
 	const handleOpen = () => {
 		setShow(!show);
 	};
 	const handleDelete = () => {
-		onDeleteEntry(id);
+		deleteEntry(id);
 	};
+	const deleteEntry = useStore(state => state.deleteEntry);
 
 	return (
 		<CardContainer>

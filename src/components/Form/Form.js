@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-child-element-spacing */
 import React from 'react';
+import useStore from '../useStore';
 import { useForm } from 'react-hook-form';
 import { FormStyled } from '../UI/Form/Form.styled';
 import { Fieldset } from '../UI/Form/Fieldset.styled';
@@ -9,9 +10,11 @@ import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
 import { Error } from '../UI/Form/Error.styled';
 
-export default function Form({ onAddEntry, modalShow }) {
+export default function Form() {
+	const addEntry = useStore(state => state.addEntry);
+	const modalShow = useStore(state => state.modalShow);
 	const onSubmit = (data, event) => {
-		onAddEntry(data);
+		addEntry(data);
 		event.target.reset();
 		modalShow();
 	};
