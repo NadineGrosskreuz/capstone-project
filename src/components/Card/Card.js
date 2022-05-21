@@ -34,6 +34,7 @@ export default function Card({
 			{show && <Typography variant="p">{visited}</Typography>}
 			{show && <Typography variant="p">{rating}</Typography>}
 			{show && <Button onClick={handleDelete}>Löschen</Button>}
+			{show && <Button>Ändern</Button>}
 		</CardContainer>
 	);
 }
