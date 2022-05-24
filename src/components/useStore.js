@@ -95,21 +95,14 @@ const useStore = create(
 				};
 			});
 		},
-		controlEntry: (id, category, name, address, products, information, visited, rating) => {
-			console.log(id);
+		controlEntry: (id, data) => {
 			set(state => {
 				return {
 					entries: state.entries.map(entry =>
 						entry.id === id
 							? {
 									...entry,
-									category,
-									name,
-									address,
-									products,
-									information,
-									visited,
-									rating,
+									...data,
 							  }
 							: entry
 					),
