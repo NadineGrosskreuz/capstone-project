@@ -11,6 +11,7 @@ const useStore = create(
 		modalShow: () => {
 			set({ modalState: true });
 		},
+
 		entries: [
 			{
 				id: '1',
@@ -21,6 +22,7 @@ const useStore = create(
 				information: 'Stadtteil-Flohmarkt, tolle Atmosphäre',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
+				edit: false,
 			},
 
 			{
@@ -33,6 +35,7 @@ const useStore = create(
 					'Tolle Beratung durch die nette Inhaberin, viele schöne Vintage-Teile zu moderaten Preisen',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
+				edit: false,
 			},
 
 			{
@@ -45,6 +48,7 @@ const useStore = create(
 					'Der bekannteste Flohmarkt Hannovers, von der Auswahl her aber leider nicht meins',
 				visited: 'Ich war schon da',
 				rating: 'Nicht mein Fall!',
+				edit: false,
 			},
 		],
 
@@ -62,6 +66,7 @@ const useStore = create(
 							information: entry.information,
 							visited: entry.visited,
 							rating: entry.rating,
+							edit: false,
 						},
 					],
 				};
@@ -75,6 +80,43 @@ const useStore = create(
 				};
 			});
 		},
+
+		editEntry: id => {
+			set(state => {
+				return {
+					entries: state.entries.map(entry =>
+						entry.id === id
+							? {
+									...entry,
+									edit: !entry.edit,
+							  }
+							: entry
+					),
+				};
+			});
+		},
+		controlEntry: (id, category, name, address, products, information, visited, rating) => {
+			console.log(id);
+			set(state => {
+				return {
+					entries: state.entries.map(entry =>
+						entry.id === id
+							? {
+									...entry,
+									category,
+									name,
+									address,
+									products,
+									information,
+									visited,
+									rating,
+							  }
+							: entry
+					),
+				};
+			});
+		},
 	}))
 );
+
 export default useStore;

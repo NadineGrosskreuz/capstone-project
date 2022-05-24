@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-child-element-spacing */
-import React from 'react';
+import React, { useEffect } from 'react';
 import useStore from '../useStore';
 import { useForm } from 'react-hook-form';
 import { FormStyled } from '../UI/Form/Form.styled';
@@ -10,20 +10,73 @@ import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
 import { Error } from '../UI/Form/Error.styled';
 
-export default function Form() {
+export default function Form({ id }) {
 	const addEntry = useStore(state => state.addEntry);
 	const modalShow = useStore(state => state.modalShow);
-	const onSubmit = (data, event) => {
-		addEntry(data);
-		event.target.reset();
-		modalShow();
-	};
-
+	const controlEntry = useStore(state => state.controlEntry);
+	const entries = useStore(state => state.entries);
+	const entryToUpdate = entries.find(entry => entry.id === id);
+	const editEntry = useStore(state => state.editEntry);
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm();
+
+	/*const prePopulateForm = useCallback(() => {
+		setValue('category', entries[entryToUpdate].category);
+		setValue('name', entries[entryToUpdate].name);
+		setValue('address', entries[entryToUpdate].address);
+		setValue('products', entries[entryToUpdate].products);
+		setValue('information', entries[entryToUpdate].information);
+		setValue('visited', entries[entryToUpdate].visited);
+		setValue('rating', entries[entryToUpdate].rating);
+		setValue('edit', entries[entryToUpdate].edit);
+	}, [entryToUpdate, entries, setValue]);
+
+	const resetForm = useCallback(() => {
+		setValue('category', '');
+		setValue('name', '');
+		setValue('address', '');
+		setValue('products', '');
+		setValue('information', '');
+		setValue('visited', '');
+		setValue('rating', '');
+		setValue('edit', '');
+	}, [setValue]);
+
+	useEffect(() => {
+		if (entryToUpdate) {
+			prePopulateForm();
+		} else {
+			resetForm();
+		}
+	}, [entryToUpdate, prePopulateForm, resetForm]);*/
+
+	useEffect(() => {
+		if (entryToUpdate) {
+			setValue('category', entryToUpdate.category);
+			setValue('name', entryToUpdate.name);
+			setValue('address', entryToUpdate.address);
+			setValue('products', entryToUpdate.products);
+			setValue('information', entryToUpdate.information);
+			setValue('visited', entryToUpdate.visited);
+			setValue('rating', entryToUpdate.rating);
+			setValue('edit', entryToUpdate.edit);
+		}
+	}, [entryToUpdate?.category, entryToUpdate?.name, setValue]);
+
+	const onSubmit = (data, event) => {
+		if (entryToUpdate) {
+			controlEntry(id);
+			editEntry(id);
+		} else {
+			addEntry(data);
+			event.target.reset();
+			modalShow();
+		}
+	};
 
 	return (
 		<FormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +96,6 @@ export default function Form() {
 					Laden
 				</Label>
 			</Fieldset>
-
 			<Fieldset>
 				<Label htmlFor="name" variant="bold">
 					Name (erforderlich)
@@ -62,7 +114,6 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-
 			<Fieldset>
 				<Label htmlFor="adresse" variant="bold">
 					Adresse
@@ -78,7 +129,6 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
 			</Fieldset>
-
 			<Fieldset>
 				<Legend>Produkte</Legend>
 				<Input
@@ -131,7 +181,6 @@ export default function Form() {
 					Spielsachen
 				</Label>
 			</Fieldset>
-
 			<Fieldset>
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos
@@ -147,7 +196,6 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-
 			<Fieldset>
 				<Legend>Schon besucht?</Legend>
 				<Input type="radio" value="ja" id="besucht_ja" {...register('visited')} />
@@ -159,7 +207,6 @@ export default function Form() {
 					Ich war noch nicht da
 				</Label>
 			</Fieldset>
-
 			<Fieldset>
 				<Legend>Bewertung</Legend>
 				<Input type="radio" value="mag ich" id="bewertung_gut" {...register('rating')} />
@@ -176,7 +223,6 @@ export default function Form() {
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
-
 			<Button type="submit" variant="addentry">
 				Eintrag hinzufügen
 			</Button>
