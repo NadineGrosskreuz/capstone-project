@@ -18,7 +18,7 @@ const useStore = create(
 				category: 'Flohmarkt',
 				name: 'Faust',
 				address: 'Zur Bettfedernfabrik 3, 30451 Hannover',
-				products: 'Kleidung, Deko, Medien, Spielsachen',
+				products: ['Kleidung', 'Deko', 'Medien', 'Spielsachen'],
 				information: 'Stadtteil-Flohmarkt, tolle Atmosphäre',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
