@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-child-element-spacing */
-import React from 'react';
+import React, { useEffect } from 'react';
 import useStore from '../useStore';
 import { useForm } from 'react-hook-form';
 import { FormStyled } from '../UI/Form/Form.styled';
@@ -10,24 +10,47 @@ import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
 import { Error } from '../UI/Form/Error.styled';
 
-export default function Form() {
+export default function Form({ id }) {
 	const addEntry = useStore(state => state.addEntry);
 	const modalShow = useStore(state => state.modalShow);
-	const onSubmit = (data, event) => {
-		addEntry(data);
-		event.target.reset();
-		modalShow();
-	};
-
+	const controlEntry = useStore(state => state.controlEntry);
+	const entries = useStore(state => state.entries);
+	const entryToUpdate = entries.find(entry => entry.id === id);
+	const editEntry = useStore(state => state.editEntry);
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm();
 
+	useEffect(() => {
+		if (entryToUpdate) {
+			setValue('category', entryToUpdate.category);
+			setValue('name', entryToUpdate.name);
+			setValue('address', entryToUpdate.address);
+			setValue('products', entryToUpdate.products);
+			setValue('information', entryToUpdate.information);
+			setValue('visited', entryToUpdate.visited);
+			setValue('rating', entryToUpdate.rating);
+			setValue('edit', entryToUpdate.edit);
+		}
+	}, [entryToUpdate, setValue]);
+
+	const onSubmit = (data, event) => {
+		if (entryToUpdate) {
+			controlEntry(id, data);
+			editEntry(id);
+		} else {
+			addEntry(data);
+			event.target.reset();
+			modalShow();
+		}
+	};
+
 	return (
 		<FormStyled onSubmit={handleSubmit(onSubmit)}>
-			<Fieldset>
+			<Fieldset {...register('category')}>
 				<Legend>Kategorie</Legend>
 				<Input
 					type="radio"
@@ -43,8 +66,7 @@ export default function Form() {
 					Laden
 				</Label>
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('name', { required: true, maxLength: 50 })}>
 				<Label htmlFor="name" variant="bold">
 					Name (erforderlich)
 				</Label>
@@ -62,8 +84,7 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('address', { maxLength: 150 })}>
 				<Label htmlFor="adresse" variant="bold">
 					Adresse
 				</Label>
@@ -78,8 +99,7 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('products')}>
 				<Legend>Produkte</Legend>
 				<Input
 					type="checkbox"
@@ -131,8 +151,7 @@ export default function Form() {
 					Spielsachen
 				</Label>
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('information', { maxLength: 300 })}>
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos
 				</Label>
@@ -147,28 +166,36 @@ export default function Form() {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('visited')}>
 				<Legend>Schon besucht?</Legend>
-				<Input type="radio" value="ja" id="besucht_ja" {...register('visited')} />
+				<Input
+					type="radio"
+					value="Ich war schon da"
+					id="besucht_ja"
+					{...register('visited')}
+				/>
 				<Label htmlFor="besucht_ja" variant="radio">
 					Ich war schon da
 				</Label>
-				<Input type="radio" value="nein" id="besucht_nein" {...register('visited')} />
+				<Input
+					type="radio"
+					value="Ich war noch nicht da"
+					id="besucht_nein"
+					{...register('visited')}
+				/>
 				<Label htmlFor="besucht_nein" variant="radio">
 					Ich war noch nicht da
 				</Label>
 			</Fieldset>
-
-			<Fieldset>
+			<Fieldset {...register('rating')}>
 				<Legend>Bewertung</Legend>
-				<Input type="radio" value="mag ich" id="bewertung_gut" {...register('rating')} />
+				<Input type="radio" value="Mag ich!" id="bewertung_gut" {...register('rating')} />
 				<Label htmlFor="bewertung_gut" variant="radio">
 					Mag ich!
 				</Label>
 				<Input
 					type="radio"
-					value="nicht mein Fall"
+					value="Nicht mein Fall!"
 					id="bewertung_schlecht"
 					{...register('rating')}
 				/>
@@ -176,10 +203,15 @@ export default function Form() {
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
-
-			<Button type="submit" variant="addentry">
-				Eintrag hinzufügen
-			</Button>
+			{entryToUpdate ? (
+				<Button type="submit" variant="addentry">
+					Speichern
+				</Button>
+			) : (
+				<Button type="submit" variant="addentry">
+					Eintrag hinzufügen
+				</Button>
+			)}
 		</FormStyled>
 	);
 }

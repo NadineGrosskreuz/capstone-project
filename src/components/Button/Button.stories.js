@@ -31,16 +31,29 @@ const propsAdd = {
 	children: 'Eintrag hinzufügen',
 };
 
+const propsChange = {
+	children: 'Ändern',
+};
+
+const propsSave = {
+	children: 'Speichern',
+};
+
 export function ShowMore() {
 	return <Button {...propsMore} />;
 }
 export function ShowLess() {
 	return <Button {...propsLess} />;
 }
-
 export function Delete() {
 	return <Button {...propsDelete} />;
 }
 export function Add() {
 	return <Button {...propsAdd} />;
+}
+export function Change() {
+	return <Button {...propsChange} />;
+}
+export function Save() {
+	return <Button {...propsSave} />;
 }

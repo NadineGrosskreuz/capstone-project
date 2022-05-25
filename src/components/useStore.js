@@ -11,16 +11,18 @@ const useStore = create(
 		modalShow: () => {
 			set({ modalState: true });
 		},
+
 		entries: [
 			{
 				id: '1',
 				category: 'Flohmarkt',
 				name: 'Faust',
 				address: 'Zur Bettfedernfabrik 3, 30451 Hannover',
-				products: 'Kleidung, Deko, Medien, Spielsachen',
+				products: ['Kleidung', 'Deko', 'Medien', 'Spielsachen'],
 				information: 'Stadtteil-Flohmarkt, tolle Atmosphäre',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
+				edit: false,
 			},
 
 			{
@@ -33,6 +35,7 @@ const useStore = create(
 					'Tolle Beratung durch die nette Inhaberin, viele schöne Vintage-Teile zu moderaten Preisen',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
+				edit: false,
 			},
 
 			{
@@ -45,6 +48,7 @@ const useStore = create(
 					'Der bekannteste Flohmarkt Hannovers, von der Auswahl her aber leider nicht meins',
 				visited: 'Ich war schon da',
 				rating: 'Nicht mein Fall!',
+				edit: false,
 			},
 		],
 
@@ -62,6 +66,7 @@ const useStore = create(
 							information: entry.information,
 							visited: entry.visited,
 							rating: entry.rating,
+							edit: false,
 						},
 					],
 				};
@@ -75,6 +80,36 @@ const useStore = create(
 				};
 			});
 		},
+
+		editEntry: id => {
+			set(state => {
+				return {
+					entries: state.entries.map(entry =>
+						entry.id === id
+							? {
+									...entry,
+									edit: !entry.edit,
+							  }
+							: entry
+					),
+				};
+			});
+		},
+		controlEntry: (id, data) => {
+			set(state => {
+				return {
+					entries: state.entries.map(entry =>
+						entry.id === id
+							? {
+									...entry,
+									...data,
+							  }
+							: entry
+					),
+				};
+			});
+		},
 	}))
 );
+
 export default useStore;

@@ -25,7 +25,7 @@ describe('Card', () => {
 		expect(button1).toBeInTheDocument();
 	});
 
-	it('renders the missing information and the "Löschen" button after button click', () => {
+	it('renders the missing information and the "Löschen" and "Ändern" button after button click', () => {
 		render(
 			<Card
 				id="1"
@@ -56,11 +56,13 @@ describe('Card', () => {
 		const visited = screen.getByText(/Ich war schon da/i);
 		const rating = screen.getByText(/Mag ich!/i);
 		const deleteButton = screen.getByRole('button', { name: /Löschen/i });
+		const changeButton = screen.getByRole('button', { name: /Ändern/ });
 
 		expect(products).toBeInTheDocument();
 		expect(information).toBeInTheDocument();
 		expect(visited).toBeInTheDocument();
 		expect(rating).toBeInTheDocument();
 		expect(deleteButton).toBeInTheDocument();
+		expect(changeButton).toBeInTheDocument();
 	});
 });
