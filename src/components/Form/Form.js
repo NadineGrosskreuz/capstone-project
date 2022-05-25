@@ -24,36 +24,6 @@ export default function Form({ id }) {
 		formState: { errors },
 	} = useForm();
 
-	/*const prePopulateForm = useCallback(() => {
-		setValue('category', entries[entryToUpdate].category);
-		setValue('name', entries[entryToUpdate].name);
-		setValue('address', entries[entryToUpdate].address);
-		setValue('products', entries[entryToUpdate].products);
-		setValue('information', entries[entryToUpdate].information);
-		setValue('visited', entries[entryToUpdate].visited);
-		setValue('rating', entries[entryToUpdate].rating);
-		setValue('edit', entries[entryToUpdate].edit);
-	}, [entryToUpdate, entries, setValue]);
-
-	const resetForm = useCallback(() => {
-		setValue('category', '');
-		setValue('name', '');
-		setValue('address', '');
-		setValue('products', '');
-		setValue('information', '');
-		setValue('visited', '');
-		setValue('rating', '');
-		setValue('edit', '');
-	}, [setValue]);
-
-	useEffect(() => {
-		if (entryToUpdate) {
-			prePopulateForm();
-		} else {
-			resetForm();
-		}
-	}, [entryToUpdate, prePopulateForm, resetForm]);*/
-
 	useEffect(() => {
 		if (entryToUpdate) {
 			setValue('category', entryToUpdate.category);
@@ -65,7 +35,7 @@ export default function Form({ id }) {
 			setValue('rating', entryToUpdate.rating);
 			setValue('edit', entryToUpdate.edit);
 		}
-	}, [entryToUpdate?.category, entryToUpdate?.name, setValue]);
+	}, [entryToUpdate, setValue]);
 
 	const onSubmit = (data, event) => {
 		if (entryToUpdate) {
