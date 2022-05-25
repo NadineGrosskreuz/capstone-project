@@ -39,7 +39,6 @@ export default function Form({ id }) {
 
 	const onSubmit = (data, event) => {
 		if (entryToUpdate) {
-			console.log(data);
 			controlEntry(id, data);
 			editEntry(id);
 		} else {
