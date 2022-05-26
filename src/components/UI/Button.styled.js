@@ -13,6 +13,12 @@ const Button = styled.button`
 	align-self: center;
 	justify-content: center;
 	${({ variant }) => variant == 'addentry' && css` margin-top: 10px;}`}
+	${({ variant }) =>
+		variant === 'nav' &&
+		css`
+			border: none;
+			margin: 5px;
+		`}
 `;
 
 export { Button };
