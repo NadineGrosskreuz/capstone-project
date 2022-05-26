@@ -16,8 +16,14 @@ const Button = styled.button`
 	${({ variant }) =>
 		variant === 'nav' &&
 		css`
+			background-color: ${props => (props.href === props.pathName ? '#ffa375' : 'white')};
+			width: 55px;
+			border-radius: 50%;
+			padding: 5px;
+			margin: 7px;
 			border: none;
-			margin: 5px;
+			display: flex;
+			justify-content: center;
 		`}
 `;
 
