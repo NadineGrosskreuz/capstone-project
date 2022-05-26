@@ -13,6 +13,18 @@ const Button = styled.button`
 	align-self: center;
 	justify-content: center;
 	${({ variant }) => variant == 'addentry' && css` margin-top: 10px;}`}
+	${({ variant }) =>
+		variant === 'nav' &&
+		css`
+			background-color: ${props => (props.href === props.pathName ? '#ffa375' : 'white')};
+			width: 55px;
+			border-radius: 50%;
+			padding: 5px;
+			margin: 7px;
+			border: none;
+			display: flex;
+			justify-content: center;
+		`}
 `;
 
 export { Button };
