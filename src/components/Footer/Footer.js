@@ -30,6 +30,16 @@ export default function Footer() {
 						<SVGIcon variant="form" color="#342293" size="40px" />
 					</Button>
 				</Link>
+				<Link passHref href="/bookmark">
+					<Button
+						type="button"
+						variant="nav"
+						aria-label="favoriten"
+						pathName={router.pathname}
+					>
+						<SVGIcon variant="heart" color="#342293" size="40px" />
+					</Button>
+				</Link>
 			</FooterNav>
 		</FooterContainer>
 	);
