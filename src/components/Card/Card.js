@@ -38,7 +38,8 @@ export default function Card({
 				<>
 					<Button
 						type="button"
-						variant="nav"
+						variant="bookmark"
+						aria-label="zu favoriten hinzufügen"
 						onClick={() => {
 							bookmark ? bookmarkFalse(id) : bookmarkTrue(id);
 						}}
