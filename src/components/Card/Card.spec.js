@@ -4,7 +4,7 @@ import Card from './Card';
 import { userEvent } from '@storybook/testing-library';
 
 describe('Card', () => {
-	it('renders category, name, address and the "Mehr anzeigen" button only', () => {
+	it('renders category, name, address, the "Mehr anzeigen" and the heart icon button only', () => {
 		render(
 			<Card
 				id="1"
@@ -17,12 +17,14 @@ describe('Card', () => {
 		const category = screen.getByText(/Flohmarkt/i);
 		const name = screen.getByRole('heading', { name: /Faust/i });
 		const address = screen.getByText(/Zur Bettfedernfabrik 3, 30451 Hannover/i);
-		const button1 = screen.getByRole('button', { name: /Mehr anzeigen/i });
+		const buttonShowMore = screen.getByRole('button', { name: /Mehr anzeigen/i });
+		const buttonHeart = screen.getByLabelText(/zu favoriten hinzufügen/i);
 
 		expect(category).toBeInTheDocument();
 		expect(name).toBeInTheDocument();
 		expect(address).toBeInTheDocument();
-		expect(button1).toBeInTheDocument();
+		expect(buttonShowMore).toBeInTheDocument();
+		expect(buttonHeart).toBeInTheDocument();
 	});
 
 	it('renders the missing information and the "Löschen" and "Ändern" button after button click', () => {
