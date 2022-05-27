@@ -12,6 +12,21 @@ const useStore = create(
 			set({ modalState: true });
 		},
 
+		bookmarkTrue: id => {
+			set(state => ({
+				entries: state.entries.map(entry =>
+					entry.id === id ? { ...entry, bookmark: true } : entry
+				),
+			}));
+		},
+		bookmarkFalse: id => {
+			set(state => ({
+				entries: state.entries.map(entry =>
+					entry.id === id ? { ...entry, bookmark: false } : entry
+				),
+			}));
+		},
+
 		entries: [
 			{
 				id: '1',
@@ -23,6 +38,7 @@ const useStore = create(
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
 				edit: false,
+				bookmark: true,
 			},
 
 			{
@@ -36,6 +52,7 @@ const useStore = create(
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
 				edit: false,
+				bookmark: true,
 			},
 
 			{
@@ -49,6 +66,7 @@ const useStore = create(
 				visited: 'Ich war schon da',
 				rating: 'Nicht mein Fall!',
 				edit: false,
+				bookmark: false,
 			},
 		],
 
@@ -95,6 +113,7 @@ const useStore = create(
 				};
 			});
 		},
+
 		controlEntry: (id, data) => {
 			set(state => {
 				return {

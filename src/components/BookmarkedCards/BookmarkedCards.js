@@ -1,14 +1,14 @@
-import React from 'react';
 import useStore from '../useStore';
 import Card from '../Card/Card';
 import { CardGrid } from '../UI/CardGrid.styled';
 
 export default function CardList() {
 	const entries = useStore(state => state.entries);
+	const bookmarks = entries.filter(entry => entry.bookmark == true);
 
 	return (
 		<CardGrid>
-			{entries.map(entry => (
+			{bookmarks.map(entry => (
 				<Card
 					key={entry.id}
 					id={entry.id}
