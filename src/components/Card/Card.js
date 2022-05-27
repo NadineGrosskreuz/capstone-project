@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useStore from '../useStore';
 import Form from '../Form/Form';
+import SVGIcon from '../UI/SVG';
 import { Button } from '../UI/Button.styled';
 import { CardContainer } from '../UI/CardContainer.styled';
 import Typography from '../UI/Typography';
@@ -32,6 +33,9 @@ export default function Card({
 			{edit && <Form id={id} />}
 			{!edit && (
 				<>
+					<Button type="button" variant="nav">
+						<SVGIcon variant="heart" color="#342293" size="35px" />
+					</Button>
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>
 					<Typography variant="p">{address}</Typography>
