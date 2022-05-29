@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import SVGIcon from '../UI/SVG';
-import { Button } from '../UI/Button.styled';
-import { FooterContainer } from '../UI/Footer/FooterContainer';
-import { FooterNav } from '../UI/Footer/FooterNav';
+import { FooterContainer } from '../UI/Footer/FooterContainer.styled';
+import { FooterNav } from '../UI/Footer/FooterNav.styled';
+import { NavElement } from '../UI/Footer/NavElement.styled';
 
 export default function Footer() {
 	const router = useRouter();
@@ -11,34 +11,19 @@ export default function Footer() {
 		<FooterContainer>
 			<FooterNav>
 				<Link passHref href="/">
-					<Button
-						type="button"
-						variant="nav"
-						aria-label="home"
-						pathName={router.pathname}
-					>
+					<NavElement aria-label="home" pathName={router.pathname}>
 						<SVGIcon variant="home" color="#342293" size="40px" />
-					</Button>
+					</NavElement>
 				</Link>
 				<Link passHref href="/form">
-					<Button
-						type="button"
-						variant="nav"
-						aria-label="formular"
-						pathName={router.pathname}
-					>
+					<NavElement aria-label="formular" pathName={router.pathname}>
 						<SVGIcon variant="form" color="#342293" size="40px" />
-					</Button>
+					</NavElement>
 				</Link>
 				<Link passHref href="/bookmark">
-					<Button
-						type="button"
-						variant="nav"
-						aria-label="favoriten"
-						pathName={router.pathname}
-					>
+					<NavElement aria-label="favoriten" pathName={router.pathname}>
 						<SVGIcon variant="heart" color="#342293" size="40px" />
-					</Button>
+					</NavElement>
 				</Link>
 			</FooterNav>
 		</FooterContainer>

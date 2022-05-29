@@ -1,11 +1,11 @@
 import React from 'react';
-import BookmarkedCards from '../src/components/BookmarkedCards/BookmarkedCards';
+import CardList from '../src/components/CardList/CardList';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
 
 export default function BookmarkPage() {
 	return (
 		<PageContainer>
-			<BookmarkedCards />
+			<CardList bookmarkMode="true" />
 		</PageContainer>
 	);
 }
