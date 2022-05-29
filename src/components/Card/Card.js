@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useStore from '../useStore';
 import Form from '../Form/Form';
+import SVGIcon from '../UI/SVG';
 import { Button } from '../UI/Button.styled';
 import { CardContainer } from '../UI/CardContainer.styled';
 import Typography from '../UI/Typography';
@@ -15,6 +16,7 @@ export default function Card({
 	visited,
 	rating,
 	edit,
+	bookmark,
 }) {
 	const [show, setShow] = useState(false);
 
@@ -26,12 +28,29 @@ export default function Card({
 	};
 	const deleteEntry = useStore(state => state.deleteEntry);
 	const editEntry = useStore(state => state.editEntry);
+	const bookmarkTrue = useStore(state => state.bookmarkTrue);
+	const bookmarkFalse = useStore(state => state.bookmarkFalse);
 
 	return (
 		<CardContainer>
 			{edit && <Form id={id} />}
 			{!edit && (
 				<>
+					<Button
+						type="button"
+						variant="bookmark"
+						aria-label="zu favoriten hinzufügen"
+						onClick={() => {
+							bookmark ? bookmarkFalse(id) : bookmarkTrue(id);
+						}}
+					>
+						{bookmark ? (
+							<SVGIcon variant="heart_filled" size="25px" color="#342293" />
+						) : (
+							<SVGIcon variant="heart" size="25px" color="#342293" />
+						)}
+					</Button>
+
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>
 					<Typography variant="p">{address}</Typography>

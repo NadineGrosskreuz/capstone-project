@@ -14,9 +14,9 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Footer', () => {
-	it('renders two buttons', () => {
+	it('renders three a-tags', () => {
 		render(<Footer />);
-		const navButton = screen.getAllByRole('button');
-		expect(navButton.length).toBe(2);
+		const navElement = screen.getAllByRole('link');
+		expect(navElement.length).toBe(3);
 	});
 });

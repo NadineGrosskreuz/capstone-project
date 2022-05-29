@@ -25,6 +25,18 @@ const Button = styled.button`
 			display: flex;
 			justify-content: center;
 		`}
+		${({ variant }) =>
+		variant == 'bookmark' &&
+		css` ;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		top: 10px;
+		right: 15px;
+		display: flex;
+		justify-content: right;
+		position: absolute;
+		}`}
 `;
 
 export { Button };

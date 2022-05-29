@@ -8,6 +8,7 @@ const CardContainer = styled.li`
 	width: 33rem;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 `;
 
 export { CardContainer };
