@@ -1,6 +1,7 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
-import Map from '../src/components/Map/Map';
+
+const Map = dynamic(() => import('../src/components/Map/Map'), { ssr: false });
 
 export default function MapPage() {
 	return (
