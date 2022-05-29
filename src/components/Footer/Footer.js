@@ -25,6 +25,11 @@ export default function Footer() {
 						<SVGIcon variant="heart" color="#342293" size="40px" />
 					</NavElement>
 				</Link>
+				<Link passHref href="/map">
+					<NavElement aria-label="karte" pathName={router.pathname}>
+						<SVGIcon variant="map" color="#342293" size="40px" />
+					</NavElement>
+				</Link>
 			</FooterNav>
 		</FooterContainer>
 	);
