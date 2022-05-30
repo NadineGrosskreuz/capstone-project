@@ -13,6 +13,17 @@ module.exports = {
       test: /\.mjs$/,
       type: "javascript/auto",
     });
+
+    config.module.rules.push({
+      test: /\.(js|jsx)$/,
+      loader: require.resolve("babel-loader"),
+      options: {
+        plugins: [
+        "@babel/plugin-proposal-nullish-coalescing-operator",
+        "@babel/plugin-proposal-optional-chaining"
+        ],
+      },
+      });
     return config;
   },
 };
