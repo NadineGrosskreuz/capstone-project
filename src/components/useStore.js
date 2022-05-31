@@ -128,6 +128,21 @@ const useStore = create(
 				};
 			});
 		},
+
+		fetchAddressData: async addressValue => {
+			const url = `https://geocode.maps.co/search?q={address}`;
+			try {
+				const response = await fetch(url);
+				const data = await response.json();
+				set(state => {
+					return {
+						entries: [...state.entries, { data, addressValue }],
+					};
+				});
+			} catch (error) {
+				console.error(`Ooops we had an error: ${error}`);
+			}
+		},
 	}))
 );
 
