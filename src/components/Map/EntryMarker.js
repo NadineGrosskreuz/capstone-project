@@ -14,13 +14,12 @@ const mapMarker = L.icon({
 
 export default function EntryMarker() {
 	const entries = useStore(state => state.entries);
-	/*const fetchAddressData = useStore(state => state.fetchAddressData);*/
 
 	return (
 		<>
 			{entries.map(entry => {
 				return (
-					<Marker key={entry.id} position={entry.address} icon={mapMarker}>
+					<Marker key={entry.id} position={entry.latlng} icon={mapMarker}>
 						<Popup>
 							{entry.category} {entry.name}
 						</Popup>

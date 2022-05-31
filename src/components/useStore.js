@@ -134,6 +134,7 @@ const useStore = create(
 			try {
 				const response = await fetch(url);
 				const data = await response.json();
+				console.log(data[0].lat);
 				set(state => {
 					return {
 						entries: [...state.entries, { data, addressValue }],

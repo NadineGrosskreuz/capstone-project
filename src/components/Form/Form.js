@@ -17,6 +17,7 @@ export default function Form({ id }) {
 	const entries = useStore(state => state.entries);
 	const entryToUpdate = entries.find(entry => entry.id === id);
 	const editEntry = useStore(state => state.editEntry);
+	const fetchAddressData = useStore(state => state.fetchAddressData);
 	const {
 		register,
 		handleSubmit,
@@ -208,7 +209,7 @@ export default function Form({ id }) {
 					Speichern
 				</Button>
 			) : (
-				<Button type="submit" variant="addentry">
+				<Button type="submit" variant="addentry" onClick={fetchAddressData}>
 					Eintrag hinzufügen
 				</Button>
 			)}
