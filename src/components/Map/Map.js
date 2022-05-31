@@ -2,7 +2,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
-import LocationMarker from './LocationMarker';
+/*import LocationMarker from './LocationMarker';*/
 import EntryMarker from './EntryMarker';
 
 /*const positions = [
@@ -24,7 +24,7 @@ export default function Map() {
 			/>
 
 			<EntryMarker />
-			<LocationMarker />
+			{/*<LocationMarker />*/}
 		</MapContainer>
 	);
 }

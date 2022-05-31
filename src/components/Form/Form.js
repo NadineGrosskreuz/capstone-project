@@ -22,6 +22,7 @@ export default function Form({ id }) {
 		register,
 		handleSubmit,
 		setValue,
+		watch,
 		formState: { errors },
 	} = useForm();
 
@@ -38,12 +39,13 @@ export default function Form({ id }) {
 		}
 	}, [entryToUpdate, setValue]);
 
-	const onSubmit = (data, event) => {
+	const onSubmit = async (data, event) => {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
 		} else {
-			addEntry(data);
+			const geoData = await fetchAddressData(watch('address'));
+			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
 			event.target.reset();
 			modalShow();
 		}
@@ -209,7 +211,7 @@ export default function Form({ id }) {
 					Speichern
 				</Button>
 			) : (
-				<Button type="submit" variant="addentry" onClick={fetchAddressData}>
+				<Button type="submit" variant="addentry">
 					Eintrag hinzufügen
 				</Button>
 			)}

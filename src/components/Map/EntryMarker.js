@@ -18,8 +18,9 @@ export default function EntryMarker() {
 	return (
 		<>
 			{entries.map(entry => {
+				console.log(entry);
 				return (
-					<Marker key={entry.id} position={entry.latlng} icon={mapMarker}>
+					<Marker key={entry.id} position={entry.position} icon={mapMarker}>
 						<Popup>
 							{entry.category} {entry.name}
 						</Popup>

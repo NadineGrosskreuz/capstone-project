@@ -39,6 +39,7 @@ const useStore = create(
 				rating: 'Mag ich!',
 				edit: false,
 				bookmark: true,
+				position: [52.3760437, 9.7104938],
 			},
 
 			{
@@ -53,6 +54,7 @@ const useStore = create(
 				rating: 'Mag ich!',
 				edit: false,
 				bookmark: true,
+				position: [52.3732052, 9.7051511],
 			},
 
 			{
@@ -67,6 +69,7 @@ const useStore = create(
 				rating: 'Nicht mein Fall!',
 				edit: false,
 				bookmark: false,
+				position: [52.372612, 9.7308621],
 			},
 		],
 
@@ -77,14 +80,8 @@ const useStore = create(
 						...state.entries,
 						{
 							id: nanoid(),
-							category: entry.category,
-							name: entry.name,
-							address: entry.address,
-							products: entry.products,
-							information: entry.information,
-							visited: entry.visited,
-							rating: entry.rating,
 							edit: false,
+							...entry,
 						},
 					],
 				};
@@ -130,16 +127,11 @@ const useStore = create(
 		},
 
 		fetchAddressData: async addressValue => {
-			const url = `https://geocode.maps.co/search?q={address}`;
+			const url = `https://geocode.maps.co/search?q=${addressValue}`;
 			try {
 				const response = await fetch(url);
 				const data = await response.json();
-				console.log(data[0].lat);
-				set(state => {
-					return {
-						entries: [...state.entries, { data, addressValue }],
-					};
-				});
+				return data;
 			} catch (error) {
 				console.error(`Ooops we had an error: ${error}`);
 			}
