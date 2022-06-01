@@ -126,6 +126,20 @@ const useStore = create(
 			});
 		},
 
+		findEntry: searchTerm => {
+			set(state => {
+				return {
+					foundEntries: state.entries.filter(
+						entry =>
+							Object.values(entry).filter(value => value.includes(searchTerm))
+								.length > 0
+					),
+				};
+			});
+		},
+
+		foundEntries: [],
+
 		fetchAddressData: async addressValue => {
 			const url = `https://geocode.maps.co/search?q=${addressValue}`;
 			try {
