@@ -2,6 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { getEntries } from '../src/services/get-entry';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
+import Searchbar from '../src/components/Searchbar/Searchbar';
 
 export function getStaticProps() {
 	const initialEntries = getEntries();
@@ -18,8 +19,11 @@ export default function Home() {
 	});
 
 	return (
-		<PageContainer>
-			<CardList />
-		</PageContainer>
+		<>
+			<Searchbar />
+			<PageContainer>
+				<CardList />
+			</PageContainer>
+		</>
 	);
 }
