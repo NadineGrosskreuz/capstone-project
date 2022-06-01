@@ -16,7 +16,7 @@ export default function LocationMarker() {
 
 	return position === null ? null : (
 		<Marker position={position}>
-			<Popup>You are here</Popup>
+			<Popup>Dein Standort</Popup>
 		</Marker>
 	);
 }

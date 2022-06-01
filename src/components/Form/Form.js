@@ -17,10 +17,12 @@ export default function Form({ id }) {
 	const entries = useStore(state => state.entries);
 	const entryToUpdate = entries.find(entry => entry.id === id);
 	const editEntry = useStore(state => state.editEntry);
+	const fetchAddressData = useStore(state => state.fetchAddressData);
 	const {
 		register,
 		handleSubmit,
 		setValue,
+		watch,
 		formState: { errors },
 	} = useForm();
 
@@ -37,12 +39,13 @@ export default function Form({ id }) {
 		}
 	}, [entryToUpdate, setValue]);
 
-	const onSubmit = (data, event) => {
+	const onSubmit = async (data, event) => {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
 		} else {
-			addEntry(data);
+			const geoData = await fetchAddressData(watch('address'));
+			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
 			event.target.reset();
 			modalShow();
 		}
