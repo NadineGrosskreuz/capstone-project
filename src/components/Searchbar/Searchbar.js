@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useStore from '../useStore';
-import { useForm } from 'react-hook-form';
+//import { useForm } from 'react-hook-form';
 import Card from '../Card/Card';
 
-export default function Searchbar({ id }) {
+export default function Searchbar() {
 	const [searchTerm, setSearchTerm] = useState('');
-	const entries = useStore(state => state.entries);
+	//const [searchResults, setSearchResults] = useState([]);
+	//const entries = useStore(state => state.entries);
 	const findEntry = useStore(state => state.findEntry);
 	const foundEntries = useStore(state => state.foundEntries);
-	const entryFound = entries.find(entry => entry.id === id);
+	//const entryFound = entries.find(entry => entry.id === id);
 
 	console.log(foundEntries);
 
@@ -16,9 +17,9 @@ export default function Searchbar({ id }) {
 		setSearchTerm(event.target.value);
 	};
 
-	const { setValue } = useForm();
+	//const { setValue } = useForm();
 
-	useEffect(() => {
+	/*	useEffect(() => {
 		if (entryFound) {
 			setValue('category', entryFound.category);
 			setValue('name', entryFound.name);
@@ -30,7 +31,7 @@ export default function Searchbar({ id }) {
 			setValue('edit', entryFound.edit);
 			setValue('bookmark', entryFound.bookmark);
 		}
-	}, [entryFound, setValue]);
+	}, [entryFound, setValue]);*/
 
 	return (
 		<>
