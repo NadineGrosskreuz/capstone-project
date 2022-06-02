@@ -128,13 +128,11 @@ const useStore = create(
 
 		findEntry: searchTerm => {
 			set(state => {
-				console.log('Ich bin da');
 				return {
 					foundEntries: state.entries.filter(
 						entry =>
 							Object.values(entry).filter(value => {
 								if (typeof value === 'string' && value.includes(searchTerm)) {
-									console.log(value.includes(searchTerm));
 									return value;
 								}
 							}).length > 0
