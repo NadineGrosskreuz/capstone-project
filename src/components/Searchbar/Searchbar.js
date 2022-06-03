@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Button } from '../UI/Button.styled';
+import { FormSearch } from '../UI/Searchbar/FormSearch.styled';
+import { InputSearch } from '../UI/Searchbar/InputSearch.styled';
 
 export default function Searchbar({ setSearchBarInput }) {
 	const [input, setInput] = useState('');
@@ -8,16 +11,18 @@ export default function Searchbar({ setSearchBarInput }) {
 	};
 
 	return (
-		<form
+		<FormSearch
 			onSubmit={event => {
 				event.preventDefault();
 				setSearchBarInput(input);
 			}}
 		>
 			<label>
-				<input type="search" value={input} onChange={handleChange} />
+				<InputSearch type="search" value={input} onChange={handleChange} />
 			</label>
-			<button type="submit">Suchen</button>
-		</form>
+			<Button type="submit" variant="search">
+				Suchen
+			</Button>
+		</FormSearch>
 	);
 }
