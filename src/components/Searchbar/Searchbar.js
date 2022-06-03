@@ -12,12 +12,13 @@ export default function Searchbar({ setSearchBarInput }) {
 
 	return (
 		<FormSearch
+			role="search"
 			onSubmit={event => {
 				event.preventDefault();
 				setSearchBarInput(input);
 			}}
 		>
-			<label>
+			<label htmlFor="Suche" aria-label="Suche">
 				<InputSearch type="search" value={input} onChange={handleChange} />
 			</label>
 			<Button type="submit" variant="search">
