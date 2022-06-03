@@ -1,29 +1,21 @@
 import { useState } from 'react';
-import useStore from '../useStore';
 
-export default function Searchbar() {
-	const [searchTerm, setSearchTerm] = useState('');
-	const findEntry = useStore(state => state.findEntry);
+export default function Searchbar({ setSearchBarInput }) {
+	const [input, setInput] = useState('');
 
 	const handleChange = event => {
-		setSearchTerm(event.target.value);
+		setInput(event.target.value);
 	};
 
 	return (
 		<form
 			onSubmit={event => {
 				event.preventDefault();
-				findEntry(searchTerm);
+				setSearchBarInput(input);
 			}}
 		>
 			<label>
-				Search for flea markets/shops{' '}
-				<input
-					type="search"
-					placeholder="search for flea markets/shops"
-					value={searchTerm}
-					onChange={handleChange}
-				/>
+				<input type="search" value={input} onChange={handleChange} />
 			</label>
 			<button type="submit">Suchen</button>
 		</form>

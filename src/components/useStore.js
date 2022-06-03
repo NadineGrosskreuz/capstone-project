@@ -126,22 +126,6 @@ const useStore = create(
 			});
 		},
 
-		findEntry: searchTerm => {
-			set(state => {
-				return {
-					foundEntries: state.entries.filter(
-						entry =>
-							Object.values(entry).filter(value => {
-								if (typeof value === 'string' && value.includes(searchTerm)) {
-									return value;
-								}
-							}).length > 0
-					),
-				};
-			});
-		},
-		foundEntries: [],
-
 		fetchAddressData: async addressValue => {
 			const url = `https://geocode.maps.co/search?q=${addressValue}`;
 			try {
