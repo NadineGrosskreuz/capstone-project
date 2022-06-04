@@ -35,7 +35,6 @@ const useStore = create(
 				category: 'Flohmarkt',
 				name: 'Faust',
 				address: 'Zur Bettfedernfabrik 3, 30451 Hannover',
-				products: ['Kleidung', 'Deko', 'Medien', 'Spielsachen'],
 				information: 'Stadtteil-Flohmarkt, tolle Atmosphäre',
 				visited: 'Ich war schon da',
 				rating: 'Mag ich!',
@@ -49,7 +48,6 @@ const useStore = create(
 				category: 'Laden',
 				name: 'Frau Schröder',
 				address: 'Kötnerholzweg 33A, 30451 Hannover',
-				products: 'Kleidung',
 				information:
 					'Tolle Beratung durch die nette Inhaberin, viele schöne Vintage-Teile zu moderaten Preisen',
 				visited: 'Ich war schon da',
@@ -64,7 +62,6 @@ const useStore = create(
 				category: 'Flohmarkt',
 				name: 'Altstadt',
 				address: 'Am Hohen Ufer 3, 30159 Hannover',
-				products: 'Deko, Medien, Antiquitäten',
 				information:
 					'Der bekannteste Flohmarkt Hannovers, von der Auswahl her aber leider nicht meins',
 				visited: 'Ich war schon da',

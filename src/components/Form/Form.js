@@ -35,7 +35,6 @@ export default function Form({ id }) {
 			setValue('category', entryToUpdate.category);
 			setValue('name', entryToUpdate.name);
 			setValue('address', entryToUpdate.address);
-			setValue('products', entryToUpdate.products);
 			setValue('information', entryToUpdate.information);
 			setValue('visited', entryToUpdate.visited);
 			setValue('rating', entryToUpdate.rating);
@@ -43,7 +42,7 @@ export default function Form({ id }) {
 		}
 	}, [entryToUpdate, setValue]);
 
-	const onSubmit = async data => {
+	const onSubmit = async (data, event) => {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
@@ -51,7 +50,7 @@ export default function Form({ id }) {
 		} else {
 			const geoData = await fetchAddressData(watch('address'));
 			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
-			//event.target.reset();
+			event.target.reset();
 			setModalState('sent');
 			reset();
 			router.push('/');
@@ -111,58 +110,7 @@ export default function Form({ id }) {
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
 			</Fieldset>
-			<Fieldset {...register('products')}>
-				<Legend>Produkte</Legend>
-				<Input
-					type="checkbox"
-					value="Kleidung"
-					id="produkte_kleidung"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_kleidung" variant="checkbox">
-					Kleidung
-				</Label>
-				<Input type="checkbox" value="Deko" id="produkte_deko" {...register('products')} />
-				<Label htmlFor="produkte_deko" variant="checkbox">
-					Deko
-				</Label>
-				<Input
-					type="checkbox"
-					value="Haushaltswaren"
-					id="produkte_haushaltswaren"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_haushaltswaren" variant="checkbox">
-					Haushaltswaren
-				</Label>
-				<Input
-					type="checkbox"
-					value="Medien"
-					id="produkte_medien"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_medien" variant="checkbox">
-					Medien
-				</Label>
-				<Input
-					type="checkbox"
-					value="Antiquitäten"
-					id="produkte_antiquitäten"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_antiquitäten" variant="checkbox">
-					Antiquitäten
-				</Label>
-				<Input
-					type="checkbox"
-					value="Spielsachen"
-					id="produkte_spielsachen"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_spielsachen" variant="checkbox">
-					Spielsachen
-				</Label>
-			</Fieldset>
+
 			<Fieldset {...register('information', { maxLength: 300, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos

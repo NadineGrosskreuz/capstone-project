@@ -11,7 +11,6 @@ export default function Card({
 	category,
 	name,
 	address,
-	products,
 	information,
 	visited,
 	rating,
@@ -58,7 +57,6 @@ export default function Card({
 					<Button onClick={handleOpen}>
 						{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}
 					</Button>
-					{show && <Typography variant="p">{products}</Typography>}
 					{show && <Typography variant="p">{information}</Typography>}
 					{show && <Typography variant="p">{visited}</Typography>}
 					{show && <Typography variant="p">{rating}</Typography>}

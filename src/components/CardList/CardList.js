@@ -17,7 +17,6 @@ export default function CardList({ bookmarkMode, searchBarInput }) {
 						category={entry.category}
 						name={entry.name}
 						address={entry.address}
-						products={entry.products}
 						information={entry.information}
 						visited={entry.visited}
 						rating={entry.rating}
@@ -56,7 +55,6 @@ export default function CardList({ bookmarkMode, searchBarInput }) {
 							category={entry.category}
 							name={entry.name}
 							address={entry.address}
-							products={entry.products}
 							information={entry.information}
 							visited={entry.visited}
 							rating={entry.rating}
