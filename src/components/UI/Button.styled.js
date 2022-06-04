@@ -12,7 +12,11 @@ const Button = styled.button`
 	display: flex;
 	align-self: center;
 	justify-content: center;
-	${({ variant }) => variant == 'addentry' && css` margin-top: 10px;}`}
+	${({ variant }) =>
+		variant == 'addentry' &&
+		css`
+			margin-top: 10px;
+		`}
 	${({ variant }) =>
 		variant === 'nav' &&
 		css`
@@ -22,21 +26,26 @@ const Button = styled.button`
 			padding: 5px;
 			margin: 7px;
 			border: none;
-			display: flex;
-			justify-content: center;
 		`}
 		${({ variant }) =>
 		variant == 'bookmark' &&
-		css` ;
-		background-color: transparent;
-		border: none;
-		padding: 0;
-		top: 10px;
-		right: 15px;
-		display: flex;
-		justify-content: right;
-		position: absolute;
-		}`}
+		css`
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			top: 10px;
+			right: 15px;
+			justify-content: right;
+			position: absolute;
+		`}
+		${({ variant }) =>
+		variant == 'search' &&
+		css`
+			background-color: #ffa375;
+			color: black;
+			width: 8rem;
+			margin: 0 0 0 10px;
+		`}
 `;
 
 export { Button };
