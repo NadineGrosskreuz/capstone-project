@@ -206,6 +206,7 @@ export default function Form({ id }) {
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
+			<Input type="hidden" id="position" value="geoData[0]" {...register('position')} />
 			{entryToUpdate ? (
 				<Button type="submit" variant="addentry">
 					Speichern
