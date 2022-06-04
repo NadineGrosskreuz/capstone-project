@@ -69,7 +69,9 @@ export default function Form({ id }) {
 					Laden
 				</Label>
 			</Fieldset>
-			<Fieldset {...register('name', { required: true, maxLength: 50 })}>
+			<Fieldset
+				{...register('name', { required: true, maxLength: 50, pattern: /\S(.*\S)?/ })}
+			>
 				<Label htmlFor="name" variant="bold">
 					Name (erforderlich)
 				</Label>
@@ -78,7 +80,7 @@ export default function Form({ id }) {
 					type="text"
 					id="name"
 					variant="text"
-					{...register('name', { required: true, maxLength: 50 })}
+					{...register('name', { required: true, maxLength: 50, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'required' && (
 					<Error>Bitte trage einen Namen ein!</Error>
@@ -87,7 +89,7 @@ export default function Form({ id }) {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-			<Fieldset {...register('address', { maxLength: 150 })}>
+			<Fieldset {...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="adresse" variant="bold">
 					Adresse
 				</Label>
@@ -96,7 +98,7 @@ export default function Form({ id }) {
 					type="text"
 					id="adresse"
 					variant="text"
-					{...register('address', { maxLength: 150 })}
+					{...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen</Error>
@@ -154,7 +156,7 @@ export default function Form({ id }) {
 					Spielsachen
 				</Label>
 			</Fieldset>
-			<Fieldset {...register('information', { maxLength: 300 })}>
+			<Fieldset {...register('information', { maxLength: 300, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos
 				</Label>
@@ -163,7 +165,7 @@ export default function Form({ id }) {
 					type="text"
 					id="information"
 					variant="text"
-					{...register('information', { maxLength: 300 })}
+					{...register('information', { maxLength: 300, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen!</Error>
