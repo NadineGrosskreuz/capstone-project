@@ -13,7 +13,7 @@ import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
 	const addEntry = useStore(state => state.addEntry);
-	const modalShow = useStore(state => state.modalShow);
+	const setModalState = useStore(state => state.setModalState);
 	const controlEntry = useStore(state => state.controlEntry);
 	const entries = useStore(state => state.entries);
 	const entryToUpdate = entries.find(entry => entry.id === id);
@@ -44,11 +44,12 @@ export default function Form({ id }) {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
+			setModalState('updated');
 		} else {
 			const geoData = await fetchAddressData(watch('address'));
 			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
 			event.target.reset();
-			modalShow();
+			setModalState('sent');
 		}
 	};
 

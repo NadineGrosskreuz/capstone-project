@@ -4,12 +4,14 @@ import { nanoid } from 'nanoid';
 
 const useStore = create(
 	persist(set => ({
-		modalState: false,
-		modalHide: () => {
-			set({ modalState: false });
+		modalState: null,
+		modalMessages: {
+			sent: 'Dein Eintrag wurde hinzugefügt',
+			delete: 'Dein Eintrag wurde gelöscht',
+			updated: 'Deine Änderungen wurden gespeichert',
 		},
-		modalShow: () => {
-			set({ modalState: true });
+		setModalState: modalState => {
+			set({ modalState });
 		},
 
 		bookmarkTrue: id => {

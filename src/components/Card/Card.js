@@ -30,6 +30,7 @@ export default function Card({
 	const editEntry = useStore(state => state.editEntry);
 	const bookmarkTrue = useStore(state => state.bookmarkTrue);
 	const bookmarkFalse = useStore(state => state.bookmarkFalse);
+	const setModalState = useStore(state => state.setModalState);
 
 	return (
 		<CardContainer>
@@ -61,7 +62,16 @@ export default function Card({
 					{show && <Typography variant="p">{information}</Typography>}
 					{show && <Typography variant="p">{visited}</Typography>}
 					{show && <Typography variant="p">{rating}</Typography>}
-					{show && <Button onClick={handleDelete}>Löschen</Button>}
+					{show && (
+						<Button
+							onClick={() => {
+								handleDelete();
+								setModalState('delete');
+							}}
+						>
+							Löschen
+						</Button>
+					)}
 					{show && (
 						<Button
 							onClick={() => {
