@@ -9,6 +9,7 @@ import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
 import { Error } from '../UI/Form/Error.styled';
+import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
 	const addEntry = useStore(state => state.addEntry);
@@ -160,12 +161,11 @@ export default function Form({ id }) {
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos
 				</Label>
-				<Input
+				<Textarea
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					id="information"
-					variant="text"
-					{...register('information', { maxLength: 300, pattern: /\S(.*\S)?/ })}
+					{...register('information', { maxLength: 700, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen!</Error>
