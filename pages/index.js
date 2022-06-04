@@ -25,10 +25,10 @@ export default function Home() {
 
 	return (
 		<>
+			<Modal />
 			<Searchbar searchBarInput={searchBarInput} setSearchBarInput={setSearchBarInput} />
 			<PageContainer>
 				<CardList searchBarInput={searchBarInput} />
-				<Modal />
 			</PageContainer>
 		</>
 	);

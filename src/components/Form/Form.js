@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-child-element-spacing */
 import React, { useEffect } from 'react';
 import useStore from '../useStore';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { FormStyled } from '../UI/Form/Form.styled';
 import { Fieldset } from '../UI/Form/Fieldset.styled';
@@ -12,6 +13,7 @@ import { Error } from '../UI/Form/Error.styled';
 import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
+	const router = useRouter();
 	const addEntry = useStore(state => state.addEntry);
 	const setModalState = useStore(state => state.setModalState);
 	const controlEntry = useStore(state => state.controlEntry);
@@ -24,6 +26,7 @@ export default function Form({ id }) {
 		handleSubmit,
 		setValue,
 		watch,
+		reset,
 		formState: { errors },
 	} = useForm();
 
@@ -40,7 +43,7 @@ export default function Form({ id }) {
 		}
 	}, [entryToUpdate, setValue]);
 
-	const onSubmit = async (data, event) => {
+	const onSubmit = async data => {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
@@ -48,8 +51,10 @@ export default function Form({ id }) {
 		} else {
 			const geoData = await fetchAddressData(watch('address'));
 			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
-			event.target.reset();
+			//event.target.reset();
 			setModalState('sent');
+			reset();
+			router.push('/');
 		}
 	};
 
