@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-child-element-spacing */
 import React, { useEffect } from 'react';
 import useStore from '../useStore';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { FormStyled } from '../UI/Form/Form.styled';
 import { Fieldset } from '../UI/Form/Fieldset.styled';
@@ -9,10 +10,12 @@ import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
 import { Error } from '../UI/Form/Error.styled';
+import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
+	const router = useRouter();
 	const addEntry = useStore(state => state.addEntry);
-	const modalShow = useStore(state => state.modalShow);
+	const setModalState = useStore(state => state.setModalState);
 	const controlEntry = useStore(state => state.controlEntry);
 	const entries = useStore(state => state.entries);
 	const entryToUpdate = entries.find(entry => entry.id === id);
@@ -23,6 +26,7 @@ export default function Form({ id }) {
 		handleSubmit,
 		setValue,
 		watch,
+		reset,
 		formState: { errors },
 	} = useForm();
 
@@ -31,7 +35,6 @@ export default function Form({ id }) {
 			setValue('category', entryToUpdate.category);
 			setValue('name', entryToUpdate.name);
 			setValue('address', entryToUpdate.address);
-			setValue('products', entryToUpdate.products);
 			setValue('information', entryToUpdate.information);
 			setValue('visited', entryToUpdate.visited);
 			setValue('rating', entryToUpdate.rating);
@@ -43,11 +46,14 @@ export default function Form({ id }) {
 		if (entryToUpdate) {
 			controlEntry(id, data);
 			editEntry(id);
+			setModalState('updated');
 		} else {
 			const geoData = await fetchAddressData(watch('address'));
 			addEntry({ ...data, position: [Number(geoData[0].lat), Number(geoData[0].lon)] });
 			event.target.reset();
-			modalShow();
+			setModalState('sent');
+			reset();
+			router.push('/');
 		}
 	};
 
@@ -69,7 +75,9 @@ export default function Form({ id }) {
 					Laden
 				</Label>
 			</Fieldset>
-			<Fieldset {...register('name', { required: true, maxLength: 50 })}>
+			<Fieldset
+				{...register('name', { required: true, maxLength: 50, pattern: /\S(.*\S)?/ })}
+			>
 				<Label htmlFor="name" variant="bold">
 					Name (erforderlich)
 				</Label>
@@ -78,7 +86,7 @@ export default function Form({ id }) {
 					type="text"
 					id="name"
 					variant="text"
-					{...register('name', { required: true, maxLength: 50 })}
+					{...register('name', { required: true, maxLength: 50, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'required' && (
 					<Error>Bitte trage einen Namen ein!</Error>
@@ -87,7 +95,7 @@ export default function Form({ id }) {
 					<Error>Bitte verwende weniger Zeichen!</Error>
 				)}
 			</Fieldset>
-			<Fieldset {...register('address', { maxLength: 150 })}>
+			<Fieldset {...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="adresse" variant="bold">
 					Adresse
 				</Label>
@@ -96,74 +104,22 @@ export default function Form({ id }) {
 					type="text"
 					id="adresse"
 					variant="text"
-					{...register('address', { maxLength: 150 })}
+					{...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
 			</Fieldset>
-			<Fieldset {...register('products')}>
-				<Legend>Produkte</Legend>
-				<Input
-					type="checkbox"
-					value="Kleidung"
-					id="produkte_kleidung"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_kleidung" variant="checkbox">
-					Kleidung
-				</Label>
-				<Input type="checkbox" value="Deko" id="produkte_deko" {...register('products')} />
-				<Label htmlFor="produkte_deko" variant="checkbox">
-					Deko
-				</Label>
-				<Input
-					type="checkbox"
-					value="Haushaltswaren"
-					id="produkte_haushaltswaren"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_haushaltswaren" variant="checkbox">
-					Haushaltswaren
-				</Label>
-				<Input
-					type="checkbox"
-					value="Medien"
-					id="produkte_medien"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_medien" variant="checkbox">
-					Medien
-				</Label>
-				<Input
-					type="checkbox"
-					value="Antiquitäten"
-					id="produkte_antiquitäten"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_antiquitäten" variant="checkbox">
-					Antiquitäten
-				</Label>
-				<Input
-					type="checkbox"
-					value="Spielsachen"
-					id="produkte_spielsachen"
-					{...register('products')}
-				/>
-				<Label htmlFor="produkte_spielsachen" variant="checkbox">
-					Spielsachen
-				</Label>
-			</Fieldset>
-			<Fieldset {...register('information', { maxLength: 300 })}>
+
+			<Fieldset {...register('information', { maxLength: 300, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="information" variant="bold">
 					Weitere Infos
 				</Label>
-				<Input
+				<Textarea
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					id="information"
-					variant="text"
-					{...register('information', { maxLength: 300 })}
+					{...register('information', { maxLength: 700, pattern: /\S(.*\S)?/ })}
 				/>
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen!</Error>
@@ -206,6 +162,7 @@ export default function Form({ id }) {
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
+			<Input type="hidden" id="position" value="geoData[0]" {...register('position')} />
 			{entryToUpdate ? (
 				<Button type="submit" variant="addentry">
 					Speichern

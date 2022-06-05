@@ -18,10 +18,14 @@ export default function Home() {
 	const CardList = dynamic(() => import('../src/components/CardList/CardList'), {
 		ssr: false,
 	});
+	const Modal = dynamic(() => import('../src/components/Form/Modal'), {
+		ssr: false,
+	});
 	const [searchBarInput, setSearchBarInput] = useState('');
 
 	return (
 		<>
+			<Modal />
 			<Searchbar searchBarInput={searchBarInput} setSearchBarInput={setSearchBarInput} />
 			<PageContainer>
 				<CardList searchBarInput={searchBarInput} />
