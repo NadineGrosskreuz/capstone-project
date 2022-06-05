@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import HeaderMap from '../src/components/Header/HeaderMap';
+import Header from '../src/components/Header/Header';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
 
 const Map = dynamic(() => import('../src/components/Map/Map'), { ssr: false });
@@ -7,7 +7,7 @@ const Map = dynamic(() => import('../src/components/Map/Map'), { ssr: false });
 export default function MapPage() {
 	return (
 		<>
-			<HeaderMap />
+			<Header />
 			<PageContainer>
 				<Map />
 			</PageContainer>

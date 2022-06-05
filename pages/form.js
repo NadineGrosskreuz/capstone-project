@@ -1,12 +1,12 @@
 import React from 'react';
 import { PageContainer } from '../src/components/UI/PageContainer.styled';
 import Form from '../src/components/Form/Form';
-import HeaderForm from '../src/components/Header/HeaderForm';
+import Header from '../src/components/Header/Header';
 
 export default function FormPage() {
 	return (
 		<>
-			<HeaderForm />
+			<Header />
 			<PageContainer>
 				<Form />
 			</PageContainer>
