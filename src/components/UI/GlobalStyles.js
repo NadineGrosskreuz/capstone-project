@@ -12,11 +12,16 @@ html {
  }
 
 body {
-  background-color: #342293;
+  background-color: var(--blue);
   height: auto;
   font-family: Roboto Mono, sans-serif;
 }
 
+:root {
+  --orange: #ffa375;
+  --blue: #342293;
+  --error-red: #720e18
+}
 `;
 
 export default GlobalStyles;

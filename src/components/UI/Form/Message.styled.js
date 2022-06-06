@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Message = styled.div`
-	background-color: #ffa375;
+	background-color: var(--orange);
 	color: white;
 	border: 10px solid #342293;
 	border-radius: 20px;

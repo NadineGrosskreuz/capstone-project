@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-	background-color: #342293;
+	background-color: var(--blue);
 	width: 100%;
 	position: sticky;
 	z-index: 5000;

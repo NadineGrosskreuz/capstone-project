@@ -45,9 +45,9 @@ export default function Card({
 						}}
 					>
 						{bookmark ? (
-							<SVGIcon variant="heart_filled" size="25px" color="#342293" />
+							<SVGIcon variant="heart_filled" size="25px" color="var(--blue)" />
 						) : (
-							<SVGIcon variant="heart" size="25px" color="#342293" />
+							<SVGIcon variant="heart" size="25px" color="var(--blue)" />
 						)}
 					</Button>
 
