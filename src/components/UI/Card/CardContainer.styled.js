@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const CardContainer = styled.li`
 	background-color: var(--orange);
-	padding: 20px;
-	margin: 20px;
+	padding: 15px;
+	margin-top: 15px;
 	border-radius: 20px;
-	width: 33rem;
+	width: 95vw;
 	display: flex;
 	flex-direction: column;
 	position: relative;
