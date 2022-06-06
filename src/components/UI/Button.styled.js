@@ -12,10 +12,11 @@ const Button = styled.button`
 	display: flex;
 	align-self: center;
 	justify-content: center;
+	cursor: pointer;
 	${({ variant }) =>
 		variant == 'addentry' &&
 		css`
-			margin-top: 10px;
+			margin: 20px 0 0 22%;
 		`}
 	${({ variant }) =>
 		variant === 'nav' &&

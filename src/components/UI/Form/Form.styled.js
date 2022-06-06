@@ -5,7 +5,6 @@ const FormStyled = styled.form`
 	font-size: 1.6rem;
 	border-radius: 20px;
 	padding: 15px;
-	width: 95vw;
 `;
 
 export { FormStyled };
