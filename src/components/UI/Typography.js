@@ -24,8 +24,11 @@ export default function Typography({ children, variant, component, ...rest }) {
 }
 
 const StyledH1 = styled.h1`
-	font-size: 2.3rem;
+	font-size: 2.5rem;
+	text-transform: uppercase;
 	color: white;
+	align-self: center;
+	justify-self: center;
 `;
 
 const StyledH2 = styled.h2`

@@ -7,8 +7,8 @@ const HeaderContainer = styled.header`
 	z-index: 5000;
 	left: 0;
 	top: 0;
-	display: flex;
-	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
 `;
 
 export { HeaderContainer };
