@@ -8,6 +8,16 @@ const Input = styled.input`
 			margin-top: 5px;
 			padding: 5px 5px;
 		`}
+	${({ variant }) =>
+		variant == 'radio' &&
+		css`
+			width: 1.1em;
+			height: 1.1em;
+			cursor: pointer;
+			
+			}
+			
+		`}
 `;
 
 export { Input };
