@@ -24,12 +24,10 @@ export default function Home() {
 	const [searchBarInput, setSearchBarInput] = useState('');
 
 	return (
-		<>
-			<Modal />
+		<PageContainer>
 			<Searchbar searchBarInput={searchBarInput} setSearchBarInput={setSearchBarInput} />
-			<PageContainer>
-				<CardList searchBarInput={searchBarInput} />
-			</PageContainer>
-		</>
+			<CardList searchBarInput={searchBarInput} />
+			<Modal />
+		</PageContainer>
 	);
 }
