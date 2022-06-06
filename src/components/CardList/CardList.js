@@ -1,7 +1,7 @@
 import React from 'react';
 import useStore from '../useStore';
 import Card from '../Card/Card';
-import { CardGrid } from '../UI/CardGrid.styled';
+import { CardGrid } from '../UI/Card/CardGrid.styled';
 
 export default function CardList({ bookmarkMode, searchBarInput }) {
 	const entries = useStore(state => state.entries);

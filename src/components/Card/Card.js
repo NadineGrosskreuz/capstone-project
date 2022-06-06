@@ -3,8 +3,9 @@ import useStore from '../useStore';
 import Form from '../Form/Form';
 import SVGIcon from '../UI/SVG';
 import { Button } from '../UI/Button.styled';
-import { CardContainer } from '../UI/CardContainer.styled';
+import { CardContainer } from '../UI/Card/CardContainer.styled';
 import Typography from '../UI/Typography';
+import { ButtonContainer } from '../UI/Card/ButtonContainer.styled';
 
 export default function Card({
 	id,
@@ -60,25 +61,29 @@ export default function Card({
 					{show && <Typography variant="p">{information}</Typography>}
 					{show && <Typography variant="p">{visited}</Typography>}
 					{show && <Typography variant="p">{rating}</Typography>}
-					{show && (
-						<Button
-							onClick={() => {
-								handleDelete();
-								setModalState('delete');
-							}}
-						>
-							Löschen
-						</Button>
-					)}
-					{show && (
-						<Button
-							onClick={() => {
-								editEntry(id);
-							}}
-						>
-							{edit ? 'Speichern' : 'Ändern'}
-						</Button>
-					)}
+					<ButtonContainer>
+						{show && (
+							<Button
+								variant="small"
+								onClick={() => {
+									handleDelete();
+									setModalState('delete');
+								}}
+							>
+								Löschen
+							</Button>
+						)}
+						{show && (
+							<Button
+								variant="small"
+								onClick={() => {
+									editEntry(id);
+								}}
+							>
+								{edit ? 'Speichern' : 'Ändern'}
+							</Button>
+						)}
+					</ButtonContainer>
 				</>
 			)}
 		</CardContainer>

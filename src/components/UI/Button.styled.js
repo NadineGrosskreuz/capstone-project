@@ -47,6 +47,12 @@ const Button = styled.button`
 			width: 8rem;
 			margin: 0 0 0 10px;
 		`}
+		${({ variant }) =>
+		variant == 'small' &&
+		css`
+			width: 40%;
+			margin: 10px 0 0 0;
+		`}
 `;
 
 export { Button };
