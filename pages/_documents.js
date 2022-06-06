@@ -15,9 +15,11 @@ export default class MyDocument extends Document {
 			<Html lang="de">
 				<Head>
 					{this.props.styleTags}
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
 					<link
 						rel="stylesheet"
-						href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Arimo&display=swap"
 					/>
 				</Head>
 				<body>

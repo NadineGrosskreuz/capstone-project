@@ -5,7 +5,7 @@ const Textarea = styled.textarea`
 	margin-top: 5px;
 	padding: 5px 5px;
 	height: 10rem;
-	font-family: Roboto Mono, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	resize: none;
 `;
 
