@@ -5,7 +5,7 @@ const CardContainer = styled.li`
 	padding: 15px;
 	margin-top: 15px;
 	border-radius: 20px;
-	width: 95vw;
+	width: 360px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
