@@ -11,7 +11,7 @@ export default function Map() {
 			scrollWheelZoom
 			style={{ height: '100vh', width: '100vw' }}
 			center={[51, 10]}
-			zoom={10}
+			zoom={13}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
