@@ -9,7 +9,7 @@ import { Legend } from '../UI/Form/Legend.styled';
 import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
-import { Error } from '../UI/Form/Error.styled';
+import { Error } from '../UI/Message/Error.styled';
 import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
