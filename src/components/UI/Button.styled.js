@@ -36,7 +36,7 @@ const Button = styled.button`
 			border: none;
 			padding: 0;
 			top: 10px;
-			right: 15px;
+			right: 1.5rem;
 			justify-content: right;
 			position: absolute;
 		`}
