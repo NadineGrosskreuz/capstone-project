@@ -12,22 +12,22 @@ export default function Footer() {
 			<FooterNav>
 				<Link passHref href="/">
 					<NavElement aria-label="home" pathName={router.pathname}>
-						<SVGIcon variant="home" color="var(--blue)" size="40px" />
+						<SVGIcon variant="home" color="var(--blue)" size="35px" />
 					</NavElement>
 				</Link>
 				<Link passHref href="/form">
 					<NavElement aria-label="formular" pathName={router.pathname}>
-						<SVGIcon variant="form" color="var(--blue)" size="40px" />
+						<SVGIcon variant="form" color="var(--blue)" size="35px" />
 					</NavElement>
 				</Link>
 				<Link passHref href="/bookmark">
 					<NavElement aria-label="favoriten" pathName={router.pathname}>
-						<SVGIcon variant="heart" color="var(--blue)" size="40px" />
+						<SVGIcon variant="heart" color="var(--blue)" size="35px" />
 					</NavElement>
 				</Link>
 				<Link passHref href="/map">
 					<NavElement aria-label="karte" pathName={router.pathname}>
-						<SVGIcon variant="map" color="var(--blue)" size="40px" />
+						<SVGIcon variant="map" color="var(--blue)" size="35px" />
 					</NavElement>
 				</Link>
 			</FooterNav>
