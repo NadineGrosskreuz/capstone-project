@@ -117,7 +117,6 @@ export default function Form({ id }) {
 				</Label>
 				<Textarea
 					aria-invalid={errors.name ? 'true' : 'false'}
-					type="text"
 					id="information"
 					{...register('information', { maxLength: 700, pattern: /\S(.*\S)?/ })}
 				/>

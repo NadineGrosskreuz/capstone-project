@@ -9,7 +9,7 @@ export default function Map() {
 	return (
 		<MapContainer
 			scrollWheelZoom
-			style={{ height: '100vh', width: '100vh' }}
+			style={{ height: '100vh', width: '100vw' }}
 			center={[51, 10]}
 			zoom={10}
 		>
