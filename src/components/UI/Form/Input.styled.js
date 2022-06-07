@@ -16,9 +16,7 @@ const Input = styled.input`
 			width: 1.4rem;
 			height: 1.4rem;
 			cursor: pointer;
-			
-			}
-			
+		}
 		`}
 `;
 

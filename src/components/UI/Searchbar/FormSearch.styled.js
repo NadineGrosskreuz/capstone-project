@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const FormSearch = styled.form`
 	display: flex;
-	justify-content: center;
-	margin: 15px 10px 15px 10px;
+	align-items: center;
+	margin: 0px 0px 15px 0px;
 `;
 
 export { FormSearch };

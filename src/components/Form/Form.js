@@ -72,7 +72,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('category')}
 				/>
-				<Label htmlFor="kategorie_flohmarkt" variant="radio">
+				<Label htmlFor="kategorie_flohmarkt" variant="padding">
 					Flohmarkt
 				</Label>
 				<Input
@@ -82,7 +82,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('category')}
 				/>
-				<Label htmlFor="kategorie_laden" variant="radio">
+				<Label htmlFor="kategorie_laden" variant="padding">
 					Laden
 				</Label>
 			</Fieldset>
@@ -144,7 +144,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('visited')}
 				/>
-				<Label htmlFor="besucht_ja" variant="radio">
+				<Label htmlFor="besucht_ja" variant="padding">
 					Ich war schon da
 				</Label>
 				<Input
@@ -154,7 +154,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('visited')}
 				/>
-				<Label htmlFor="besucht_nein" variant="radio">
+				<Label htmlFor="besucht_nein" variant="padding">
 					Ich war noch nicht da
 				</Label>
 			</Fieldset>
@@ -167,7 +167,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('rating')}
 				/>
-				<Label htmlFor="bewertung_gut" variant="radio">
+				<Label htmlFor="bewertung_gut" variant="padding">
 					Mag ich!
 				</Label>
 				<Input
@@ -177,7 +177,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('rating')}
 				/>
-				<Label htmlFor="bewertung_schlecht" variant="radio">
+				<Label htmlFor="bewertung_schlecht" variant="padding">
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
