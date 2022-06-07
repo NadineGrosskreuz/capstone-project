@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-const CardGrid = styled.ul`
+const CardWrapper = styled.ul`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	gap: 15px;
 `;
 
-export { CardGrid };
+export { CardWrapper };

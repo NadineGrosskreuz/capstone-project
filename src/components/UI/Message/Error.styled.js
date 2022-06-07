@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Error = styled.span`
-	color: #720e18;
+	color: var(--error);
 	font-weight: bold;
 	padding-top: 10px;
 `;

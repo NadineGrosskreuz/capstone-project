@@ -9,7 +9,7 @@ import { Legend } from '../UI/Form/Legend.styled';
 import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
 import { Button } from '../UI/Button.styled';
-import { Error } from '../UI/Form/Error.styled';
+import { Error } from '../UI/Message/Error.styled';
 import { Textarea } from '../UI/Form/Textarea.styled';
 
 export default function Form({ id }) {
@@ -65,12 +65,19 @@ export default function Form({ id }) {
 					type="radio"
 					value="Flohmarkt"
 					id="kategorie_flohmarkt"
+					variant="radio"
 					{...register('category')}
 				/>
 				<Label htmlFor="kategorie_flohmarkt" variant="radio">
 					Flohmarkt
 				</Label>
-				<Input type="radio" value="Laden" id="kategorie_laden" {...register('category')} />
+				<Input
+					type="radio"
+					value="Laden"
+					id="kategorie_laden"
+					variant="radio"
+					{...register('category')}
+				/>
 				<Label htmlFor="kategorie_laden" variant="radio">
 					Laden
 				</Label>
@@ -117,7 +124,6 @@ export default function Form({ id }) {
 				</Label>
 				<Textarea
 					aria-invalid={errors.name ? 'true' : 'false'}
-					type="text"
 					id="information"
 					{...register('information', { maxLength: 700, pattern: /\S(.*\S)?/ })}
 				/>
@@ -131,6 +137,7 @@ export default function Form({ id }) {
 					type="radio"
 					value="Ich war schon da"
 					id="besucht_ja"
+					variant="radio"
 					{...register('visited')}
 				/>
 				<Label htmlFor="besucht_ja" variant="radio">
@@ -140,6 +147,7 @@ export default function Form({ id }) {
 					type="radio"
 					value="Ich war noch nicht da"
 					id="besucht_nein"
+					variant="radio"
 					{...register('visited')}
 				/>
 				<Label htmlFor="besucht_nein" variant="radio">
@@ -148,7 +156,13 @@ export default function Form({ id }) {
 			</Fieldset>
 			<Fieldset {...register('rating')}>
 				<Legend>Bewertung</Legend>
-				<Input type="radio" value="Mag ich!" id="bewertung_gut" {...register('rating')} />
+				<Input
+					type="radio"
+					value="Mag ich!"
+					id="bewertung_gut"
+					variant="radio"
+					{...register('rating')}
+				/>
 				<Label htmlFor="bewertung_gut" variant="radio">
 					Mag ich!
 				</Label>
@@ -156,6 +170,7 @@ export default function Form({ id }) {
 					type="radio"
 					value="Nicht mein Fall!"
 					id="bewertung_schlecht"
+					variant="radio"
 					{...register('rating')}
 				/>
 				<Label htmlFor="bewertung_schlecht" variant="radio">

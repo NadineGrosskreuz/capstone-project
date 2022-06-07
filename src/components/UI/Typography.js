@@ -14,6 +14,13 @@ export default function Typography({ children, variant, component, ...rest }) {
 					{children}
 				</StyledH2>
 			);
+		case 'pPopup':
+			return (
+				<StyledPopup {...rest} as={component}>
+					{children}
+				</StyledPopup>
+			);
+
 		default:
 			return (
 				<StyledP {...rest} as={component}>
@@ -40,4 +47,10 @@ const StyledH2 = styled.h2`
 const StyledP = styled.p`
 	font-size: 1.6rem;
 	padding-bottom: 12px;
+`;
+
+const StyledPopup = styled.p`
+	font-family: Arimo, sans-serif;
+	font-size: 1.6rem;
+	line-height: 0;
 `;

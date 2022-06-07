@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-	background-color: #342293;
+	background-color: var(--secondary-color);
 	font-size: 1.6rem;
 	color: white;
 	padding: 5px;
@@ -12,17 +12,19 @@ const Button = styled.button`
 	display: flex;
 	align-self: center;
 	justify-content: center;
+	cursor: pointer;
 	${({ variant }) =>
 		variant == 'addentry' &&
 		css`
-			margin-top: 10px;
+			margin: 20px 0 0 22%;
 		`}
 	${({ variant }) =>
 		variant === 'nav' &&
 		css`
-			background-color: ${props => (props.href === props.pathName ? '#ffa375' : 'white')};
+			background-color: ${props =>
+				props.href === props.pathName ? 'var(--primary-color)' : 'white'};
 			width: 55px;
-			border-radius: 50%;
+			border-radius: var(--border-radius-circle);
 			padding: 5px;
 			margin: 7px;
 			border: none;
@@ -34,17 +36,23 @@ const Button = styled.button`
 			border: none;
 			padding: 0;
 			top: 10px;
-			right: 15px;
+			right: 1.5rem;
 			justify-content: right;
 			position: absolute;
 		`}
 		${({ variant }) =>
 		variant == 'search' &&
 		css`
-			background-color: #ffa375;
+			background-color: var(--primary-color);
 			color: black;
 			width: 8rem;
 			margin: 0 0 0 10px;
+		`}
+		${({ variant }) =>
+		variant == 'small' &&
+		css`
+			width: 40%;
+			margin: 10px 0 0 0;
 		`}
 `;
 

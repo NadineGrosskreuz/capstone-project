@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const FooterNav = styled.nav`
-	background-color: #342293;
-	width: 100%;
+	background-color: var(--secondary-color);
+	width: var(--footer-header-width);
+	height: var(--footer-header-height);
 	bottom: 0;
 	position: fixed;
 	display: flex;

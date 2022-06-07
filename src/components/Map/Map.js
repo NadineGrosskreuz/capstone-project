@@ -9,9 +9,9 @@ export default function Map() {
 	return (
 		<MapContainer
 			scrollWheelZoom
-			style={{ height: '100vh', width: '100vh' }}
+			style={{ height: '100vh', width: '100vw' }}
 			center={[51, 10]}
-			zoom={10}
+			zoom={13}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
