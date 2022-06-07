@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const Input = styled.input`
+	font-family: Arimo, sans-serif;
+	font-size: 1.6rem;
 	${({ variant }) =>
 		variant == 'text' &&
 		css`

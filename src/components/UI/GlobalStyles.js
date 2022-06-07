@@ -14,7 +14,7 @@ html {
 body {
   background-color: var(--blue);
   height: auto;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arimo, sans-serif;
 }
 
 :root {

@@ -50,7 +50,7 @@ const StyledP = styled.p`
 `;
 
 const StyledPopup = styled.p`
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arimo, sans-serif;
 	font-size: 1.6rem;
 	line-height: 0;
 `;
