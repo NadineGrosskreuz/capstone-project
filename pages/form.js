@@ -7,7 +7,7 @@ export default function FormPage() {
 	return (
 		<>
 			<Head>
-				<title>Einträge erstellen</title>
+				<title>Eintrag erstellen</title>
 				<meta key="title" property="og:title" content="Einträge erstellen" />
 			</Head>
 			<PageContainer>
