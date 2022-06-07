@@ -10,7 +10,7 @@ export default function Map() {
 		<MapContainer
 			scrollWheelZoom
 			style={{ height: '100vh', width: '100vw' }}
-			center={[51, 10]}
+			center={[52.5170365, 13.3888599]}
 			zoom={13}
 		>
 			<TileLayer
