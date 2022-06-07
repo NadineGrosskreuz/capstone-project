@@ -3,6 +3,7 @@ import useStore from '../useStore';
 import Form from '../Form/Form';
 import SVGIcon from '../UI/SVG';
 import { Button } from '../UI/Button.styled';
+import { IconButton } from '../UI/Button/IconButton.styled';
 import { CardContainer } from '../UI/Card/CardContainer.styled';
 import Typography from '../UI/Typography';
 import { ButtonContainer } from '../UI/Card/ButtonContainer.styled';
@@ -37,9 +38,8 @@ export default function Card({
 			{edit && <Form id={id} />}
 			{!edit && (
 				<>
-					<Button
+					<IconButton
 						type="button"
-						variant="bookmark"
 						aria-label="zu favoriten hinzufügen"
 						onClick={() => {
 							bookmark ? bookmarkFalse(id) : bookmarkTrue(id);
@@ -48,13 +48,13 @@ export default function Card({
 						{bookmark ? (
 							<SVGIcon
 								variant="heart_filled"
-								size="25px"
+								size="28px"
 								color="var( --secondary-color)"
 							/>
 						) : (
-							<SVGIcon variant="heart" size="25px" color="var( --secondary-color)" />
+							<SVGIcon variant="heart" size="28px" color="var( --secondary-color)" />
 						)}
-					</Button>
+					</IconButton>
 
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>

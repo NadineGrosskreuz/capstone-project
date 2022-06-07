@@ -30,17 +30,6 @@ const Button = styled.button`
 			border: none;
 		`}
 		${({ variant }) =>
-		variant == 'bookmark' &&
-		css`
-			background-color: transparent;
-			border: none;
-			padding: 0;
-			top: 10px;
-			right: 1.5rem;
-			justify-content: right;
-			position: absolute;
-		`}
-		${({ variant }) =>
 		variant == 'search' &&
 		css`
 			background-color: var(--primary-color);

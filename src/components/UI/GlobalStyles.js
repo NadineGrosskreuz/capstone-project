@@ -20,7 +20,7 @@ body {
 :root {
   --primary-color: #ffa375;
   --secondary-color: #342293;
-  --error: #720e18
+  --error: #720e18;
 
   --image-width: 28.5%; 
   --footer-header-height: 8%;
