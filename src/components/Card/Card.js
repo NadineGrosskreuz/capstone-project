@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useStore from '../useStore';
 import Form from '../Form/Form';
 import SVGIcon from '../UI/SVG';
-import { Button } from '../UI/Button.styled';
+import { Button } from '../UI/Button/Button.styled';
 import { IconButton } from '../UI/Button/IconButton.styled';
 import { CardContainer } from '../UI/Card/CardContainer.styled';
 import Typography from '../UI/Typography';
@@ -59,7 +59,7 @@ export default function Card({
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>
 					<Typography variant="p">{address}</Typography>
-					<Button onClick={handleOpen}>
+					<Button variant="margin-bottom" onClick={handleOpen}>
 						{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}
 					</Button>
 					{show && <Typography variant="p">{information}</Typography>}
@@ -68,7 +68,7 @@ export default function Card({
 					<ButtonContainer>
 						{show && (
 							<Button
-								variant="small"
+								variant="margin-top"
 								onClick={() => {
 									handleDelete();
 									setModalState('delete');
@@ -79,7 +79,7 @@ export default function Card({
 						)}
 						{show && (
 							<Button
-								variant="small"
+								variant="margin-top"
 								onClick={() => {
 									editEntry(id);
 								}}

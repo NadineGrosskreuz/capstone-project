@@ -8,7 +8,7 @@ import { Fieldset } from '../UI/Form/Fieldset.styled';
 import { Legend } from '../UI/Form/Legend.styled';
 import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
-import { Button } from '../UI/Button.styled';
+import { Button } from '../UI/Button/Button.styled';
 import { Error } from '../UI/Message/Error.styled';
 import { Textarea } from '../UI/Form/Textarea.styled';
 
@@ -183,11 +183,11 @@ export default function Form({ id }) {
 			</Fieldset>
 			<Input type="hidden" id="position" value="geoData[0]" {...register('position')} />
 			{entryToUpdate ? (
-				<Button type="submit" variant="addentry">
+				<Button type="submit" variant="margin-center-2">
 					Speichern
 				</Button>
 			) : (
-				<Button type="submit" variant="addentry">
+				<Button type="submit" variant="margin-center">
 					Eintrag hinzufügen
 				</Button>
 			)}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '../UI/Button.styled';
+import { Button } from '../UI/Button/Button.styled';
 import { FormSearch } from '../UI/Searchbar/FormSearch.styled';
 import { InputSearch } from '../UI/Searchbar/InputSearch.styled';
 
@@ -21,7 +21,7 @@ export default function Searchbar({ setSearchBarInput }) {
 			<label htmlFor="Suche" aria-label="Suche">
 				<InputSearch type="search" value={input} onChange={handleChange} />
 			</label>
-			<Button type="submit" variant="search">
+			<Button type="submit" variant="orange">
 				Suchen
 			</Button>
 		</FormSearch>
