@@ -44,7 +44,11 @@ export default function Form({ id }) {
 
 	const onSubmit = async (data, event) => {
 		if (entryToUpdate) {
-			controlEntry(id, data);
+			const geoData = await fetchAddressData(watch('address'));
+			controlEntry(id, {
+				...data,
+				position: [Number(geoData[0].lat), Number(geoData[0].lon)],
+			});
 			editEntry(id);
 			setModalState('updated');
 		} else {
