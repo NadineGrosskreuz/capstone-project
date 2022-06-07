@@ -108,15 +108,24 @@ export default function Form({ id }) {
 			</Fieldset>
 			<Fieldset {...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="adresse" variant="bold">
-					Adresse
+					Adresse (erforderlich)
 				</Label>
 				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					id="adresse"
 					variant="text"
-					{...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}
+					{...register('address', {
+						required: true,
+						maxLength: 150,
+						pattern: /\S(.*\S)?/,
+					})}
 				/>
+				{errors.name && errors.name.type === 'required' && (
+					<Error>
+						Bitte trage eine Adresse ein! Nur die jeweilige Stadt reicht auch aus.
+					</Error>
+				)}
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}

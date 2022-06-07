@@ -55,7 +55,6 @@ export default function Card({
 							<SVGIcon variant="heart" size="28px" color="var( --secondary-color)" />
 						)}
 					</IconButton>
-
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>
 					<Typography variant="p">{address}</Typography>
