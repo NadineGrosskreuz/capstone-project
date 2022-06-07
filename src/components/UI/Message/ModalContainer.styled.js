@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const ModalContainer = styled.div`
-	background-color: var(--orange);
+	background-color: var(--primary-color);
 	color: black;
 	border-radius: 20px;
-	border: 5px solid var(--blue);
+	border: 5px solid var(--secondary-color);
 	width: 100vw;
 	height: 30vh;
 	position: fixed;

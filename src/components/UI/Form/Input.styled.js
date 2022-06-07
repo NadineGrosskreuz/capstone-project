@@ -6,15 +6,15 @@ const Input = styled.input`
 	${({ variant }) =>
 		variant == 'text' &&
 		css`
-			width: 100%;
+			width: var(--input-width);
 			margin-top: 5px;
 			padding: 5px 5px;
 		`}
 	${({ variant }) =>
 		variant == 'radio' &&
 		css`
-			width: 1.1em;
-			height: 1.1em;
+			width: 1.4rem;
+			height: 1.4rem;
 			cursor: pointer;
 			
 			}

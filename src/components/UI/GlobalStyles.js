@@ -12,15 +12,21 @@ html {
  }
 
 body {
-  background-color: var(--blue);
+  background-color: var( --secondary-color);
   height: auto;
   font-family: Arimo, sans-serif;
 }
 
 :root {
-  --orange: #ffa375;
-  --blue: #342293;
-  --error-red: #720e18
+  --primary-color: #ffa375;
+  --secondary-color: #342293;
+  --error: #720e18
+
+  --image-width: 28.5%; 
+  --footer-header-height: 8%;
+  --footer-header-width: 100%;
+  --border-radius-circle: 50%;
+  --input-width: 100%;
 }
 `;
 

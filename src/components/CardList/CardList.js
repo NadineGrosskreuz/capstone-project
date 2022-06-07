@@ -1,7 +1,7 @@
 import React from 'react';
 import useStore from '../useStore';
 import Card from '../Card/Card';
-import { CardGrid } from '../UI/Card/CardGrid.styled';
+import { CardWrapper } from '../UI/Card/CardWrapper.styled';
 
 export default function CardList({ bookmarkMode, searchBarInput }) {
 	const entries = useStore(state => state.entries);
@@ -9,7 +9,7 @@ export default function CardList({ bookmarkMode, searchBarInput }) {
 	if (bookmarkMode) {
 		const bookmarks = entries.filter(entry => entry.bookmark == true);
 		return (
-			<CardGrid>
+			<CardWrapper>
 				{bookmarks.map(entry => (
 					<Card
 						key={entry.id}
@@ -24,11 +24,11 @@ export default function CardList({ bookmarkMode, searchBarInput }) {
 						bookmark={entry.bookmark}
 					/>
 				))}
-			</CardGrid>
+			</CardWrapper>
 		);
 	} else {
 		return (
-			<CardGrid>
+			<CardWrapper>
 				{entries
 					.filter(entry => {
 						if (searchBarInput === '') {
@@ -62,7 +62,7 @@ export default function CardList({ bookmarkMode, searchBarInput }) {
 							bookmark={entry.bookmark}
 						/>
 					))}
-			</CardGrid>
+			</CardWrapper>
 		);
 	}
 }

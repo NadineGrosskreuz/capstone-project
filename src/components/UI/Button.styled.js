@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-	background-color: var(--blue);
+	background-color: var(--secondary-color);
 	font-size: 1.6rem;
 	color: white;
 	padding: 5px;
@@ -22,9 +22,9 @@ const Button = styled.button`
 		variant === 'nav' &&
 		css`
 			background-color: ${props =>
-				props.href === props.pathName ? 'var(--orange)' : 'white'};
+				props.href === props.pathName ? 'var(--primary-color)' : 'white'};
 			width: 55px;
-			border-radius: 50%;
+			border-radius: var(--border-radius-circle);
 			padding: 5px;
 			margin: 7px;
 			border: none;
@@ -43,7 +43,7 @@ const Button = styled.button`
 		${({ variant }) =>
 		variant == 'search' &&
 		css`
-			background-color: var(--orange);
+			background-color: var(--primary-color);
 			color: black;
 			width: 8rem;
 			margin: 0 0 0 10px;

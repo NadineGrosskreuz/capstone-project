@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-	background-color: var(--blue);
-	width: 100%;
-	height: 8%;
+	background-color: var(--secondary-color);
+	width: var(--footer-header-width);
+	height: var(--footer-header-height);
 	position: sticky;
 	z-index: 5000;
 	left: 0;
