@@ -5,10 +5,9 @@ import Typography from '../UI/Typography';
 import { PopupContainer } from '../UI/Map/PopupContainer.styled';
 
 const mapMarker = L.icon({
-	iconUrl: 'marker-icon-map.png',
-	iconSize: [25, 41],
+	iconUrl: 'map-marker-entry.png',
 	iconAnchor: [20, 40],
-	popupAnchor: [-7, -46],
+	popupAnchor: [3, -40],
 });
 
 export default function EntryMarker() {
