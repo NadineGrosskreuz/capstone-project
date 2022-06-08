@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const IconButton = styled.button`
+const HeartButton = styled.button`
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
@@ -9,4 +9,4 @@ const IconButton = styled.button`
 	right: 1.5rem;
 `;
 
-export { IconButton };
+export { HeartButton };

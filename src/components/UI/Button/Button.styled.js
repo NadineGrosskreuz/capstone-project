@@ -18,12 +18,7 @@ const Button = styled.button`
 		css`
 			margin: 20px 0 0 30%;
 		`}
-		${({ variant }) =>
-		variant == 'margin-bottom' &&
-		css`
-			margin-bottom: 10px;
-		`}
-		${({ variant }) =>
+	${({ variant }) =>
 		variant == 'margin-top' &&
 		css`
 			margin-top: 10px;
