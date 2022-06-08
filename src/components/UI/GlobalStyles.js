@@ -20,6 +20,7 @@ body {
 :root {
   --primary-color: #ffa375;
   --secondary-color: #342293;
+  --tertiary-color: #472ec7;
   --error: #720e18;
 
   --image-width: 28.5%; 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-	background-color: var(--secondary-color);
+	background-color: var(--tertiary-color);
 	width: var(--footer-header-width);
 	height: var(--footer-header-height);
 	position: sticky;
