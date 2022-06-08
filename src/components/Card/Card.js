@@ -77,7 +77,7 @@ export default function Card({
 					<ButtonContainer>
 						{show && (
 							<Button
-								variant="margin-top"
+								variant="margin-top-bottom"
 								onClick={() => {
 									handleDelete();
 									setModalState('delete');
@@ -88,7 +88,7 @@ export default function Card({
 						)}
 						{show && (
 							<Button
-								variant="margin-top"
+								variant="margin-top-bottom"
 								onClick={() => {
 									editEntry(id);
 								}}
