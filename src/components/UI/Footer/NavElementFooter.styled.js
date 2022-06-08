@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NavElement = styled.a`
+const NavElementFooter = styled.a`
 	background-color: ${props => (props.href === props.pathName ? '#ffa375' : 'white')};
 	width: 40px;
 	height: 40px;
@@ -10,4 +10,4 @@ const NavElement = styled.a`
 	align-items: center;
 `;
 
-export { NavElement };
+export { NavElementFooter };
