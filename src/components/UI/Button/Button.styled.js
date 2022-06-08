@@ -33,6 +33,7 @@ const Button = styled.button`
 		css`
 			background-color: var(--primary-color);
 			color: black;
+			padding: 5px 10px;
 			margin: 0 0 0 10px;
 		`}
 `;
