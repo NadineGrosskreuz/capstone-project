@@ -1,6 +1,6 @@
 import useStore from '../useStore';
 import Typography from '../UI/Typography';
-import { Button } from '../UI/Button.styled';
+import { Button } from '../UI/Button/Button.styled';
 import { ModalContainer } from '../UI/Message/ModalContainer.styled';
 
 export default function Modal() {

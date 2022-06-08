@@ -8,7 +8,7 @@ import { Fieldset } from '../UI/Form/Fieldset.styled';
 import { Legend } from '../UI/Form/Legend.styled';
 import { Input } from '../UI/Form/Input.styled';
 import { Label } from '../UI/Form/Label.styled';
-import { Button } from '../UI/Button.styled';
+import { Button } from '../UI/Button/Button.styled';
 import { Error } from '../UI/Message/Error.styled';
 import { Textarea } from '../UI/Form/Textarea.styled';
 
@@ -44,7 +44,11 @@ export default function Form({ id }) {
 
 	const onSubmit = async (data, event) => {
 		if (entryToUpdate) {
-			controlEntry(id, data);
+			const geoData = await fetchAddressData(watch('address'));
+			controlEntry(id, {
+				...data,
+				position: [Number(geoData[0].lat), Number(geoData[0].lon)],
+			});
 			editEntry(id);
 			setModalState('updated');
 		} else {
@@ -68,7 +72,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('category')}
 				/>
-				<Label htmlFor="kategorie_flohmarkt" variant="radio">
+				<Label htmlFor="kategorie_flohmarkt" variant="padding">
 					Flohmarkt
 				</Label>
 				<Input
@@ -78,7 +82,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('category')}
 				/>
-				<Label htmlFor="kategorie_laden" variant="radio">
+				<Label htmlFor="kategorie_laden" variant="padding">
 					Laden
 				</Label>
 			</Fieldset>
@@ -104,15 +108,24 @@ export default function Form({ id }) {
 			</Fieldset>
 			<Fieldset {...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}>
 				<Label htmlFor="adresse" variant="bold">
-					Adresse
+					Adresse (erforderlich)
 				</Label>
 				<Input
 					aria-invalid={errors.name ? 'true' : 'false'}
 					type="text"
 					id="adresse"
 					variant="text"
-					{...register('address', { maxLength: 150, pattern: /\S(.*\S)?/ })}
+					{...register('address', {
+						required: true,
+						maxLength: 150,
+						pattern: /\S(.*\S)?/,
+					})}
 				/>
+				{errors.name && errors.name.type === 'required' && (
+					<Error>
+						Bitte trage eine Adresse ein! Nur die jeweilige Stadt reicht auch aus.
+					</Error>
+				)}
 				{errors.name && errors.name.type === 'maxLength' && (
 					<Error>Bitte verwende weniger Zeichen</Error>
 				)}
@@ -140,7 +153,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('visited')}
 				/>
-				<Label htmlFor="besucht_ja" variant="radio">
+				<Label htmlFor="besucht_ja" variant="padding">
 					Ich war schon da
 				</Label>
 				<Input
@@ -150,7 +163,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('visited')}
 				/>
-				<Label htmlFor="besucht_nein" variant="radio">
+				<Label htmlFor="besucht_nein" variant="padding">
 					Ich war noch nicht da
 				</Label>
 			</Fieldset>
@@ -163,7 +176,7 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('rating')}
 				/>
-				<Label htmlFor="bewertung_gut" variant="radio">
+				<Label htmlFor="bewertung_gut" variant="padding">
 					Mag ich!
 				</Label>
 				<Input
@@ -173,17 +186,17 @@ export default function Form({ id }) {
 					variant="radio"
 					{...register('rating')}
 				/>
-				<Label htmlFor="bewertung_schlecht" variant="radio">
+				<Label htmlFor="bewertung_schlecht" variant="padding">
 					Nicht mein Fall!
 				</Label>
 			</Fieldset>
 			<Input type="hidden" id="position" value="geoData[0]" {...register('position')} />
 			{entryToUpdate ? (
-				<Button type="submit" variant="addentry">
+				<Button type="submit" variant="margin-center-2">
 					Speichern
 				</Button>
 			) : (
-				<Button type="submit" variant="addentry">
+				<Button type="submit" variant="margin-center">
 					Eintrag hinzufügen
 				</Button>
 			)}

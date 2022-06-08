@@ -7,7 +7,6 @@ const Textarea = styled.textarea`
 	margin-top: 5px;
 	padding: 5px 5px;
 	height: 10rem;
-
 	resize: none;
 `;
 
