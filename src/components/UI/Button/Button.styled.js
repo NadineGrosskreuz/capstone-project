@@ -26,10 +26,12 @@ const Button = styled.button`
 		${({ variant }) =>
 		variant == 'orange' &&
 		css`
-			background-color: var(--primary-color);
+			background-color: transparent;
+			border: none;
+			outline: none;
 			color: black;
 			padding: 5px 10px;
-			margin: 0 0 0 10px;
+			margin: 0 0 0 -33px;
 		`}
 `;
 

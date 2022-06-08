@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Button } from '../UI/Button/Button.styled';
+import { SearchButton } from '../UI/Button/SearchButton.styled';
 import { FormSearch } from '../UI/Searchbar/FormSearch.styled';
 import { InputSearch } from '../UI/Searchbar/InputSearch.styled';
+import SVGIcon from '../UI/SVG';
 
 export default function Searchbar({ setSearchBarInput }) {
 	const [input, setInput] = useState('');
@@ -20,10 +21,10 @@ export default function Searchbar({ setSearchBarInput }) {
 		>
 			<label htmlFor="Suche" aria-label="Suche">
 				<InputSearch type="search" value={input} onChange={handleChange} />
+				<SearchButton type="submit">
+					<SVGIcon variant="magnify" size="30px" />
+				</SearchButton>
 			</label>
-			<Button type="submit" variant="orange">
-				Suchen
-			</Button>
 		</FormSearch>
 	);
 }
