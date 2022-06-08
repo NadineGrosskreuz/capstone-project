@@ -21,7 +21,7 @@ export default function Searchbar({ setSearchBarInput }) {
 		>
 			<label htmlFor="Suche" aria-label="Suche">
 				<InputSearch type="search" value={input} onChange={handleChange} />
-				<SearchButton type="submit">
+				<SearchButton type="submit" aria-label="Suche">
 					<SVGIcon variant="magnify" size="30px" />
 				</SearchButton>
 			</label>
