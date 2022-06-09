@@ -18,22 +18,20 @@ const Button = styled.button`
 		css`
 			margin: 20px 0 0 30%;
 		`}
-		${({ variant }) =>
-		variant == 'margin-bottom' &&
+	${({ variant }) =>
+		variant == 'margin-top-bottom' &&
 		css`
-			margin-bottom: 10px;
-		`}
-		${({ variant }) =>
-		variant == 'margin-top' &&
-		css`
-			margin-top: 10px;
+			margin: 10px 0 15px 0;
 		`}
 		${({ variant }) =>
 		variant == 'orange' &&
 		css`
-			background-color: var(--primary-color);
+			background-color: transparent;
+			border: none;
+			outline: none;
 			color: black;
-			margin: 0 0 0 10px;
+			padding: 5px 10px;
+			margin: 0 0 0 -33px;
 		`}
 `;
 

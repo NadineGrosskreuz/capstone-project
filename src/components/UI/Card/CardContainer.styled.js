@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const CardContainer = styled.li`
 	background-color: var(--primary-color);
-	padding: 15px;
+	padding: 15px 15px 0 15px;
 	border-radius: 20px;
 	width: 360px;
 	display: flex;

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import useStore from '../useStore';
 import Form from '../Form/Form';
+import Typography from '../UI/Typography';
 import SVGIcon from '../UI/SVG';
 import { Button } from '../UI/Button/Button.styled';
-import { IconButton } from '../UI/Button/IconButton.styled';
+import { HeartButton } from '../UI/Button/HeartButton.styled';
+import { ArrowButton } from '../UI/Button/ArrowButton.styled';
 import { CardContainer } from '../UI/Card/CardContainer.styled';
-import Typography from '../UI/Typography';
 import { ButtonContainer } from '../UI/Card/ButtonContainer.styled';
 
 export default function Card({
@@ -38,7 +39,7 @@ export default function Card({
 			{edit && <Form id={id} />}
 			{!edit && (
 				<>
-					<IconButton
+					<HeartButton
 						type="button"
 						aria-label="zu favoriten hinzufügen"
 						onClick={() => {
@@ -54,20 +55,29 @@ export default function Card({
 						) : (
 							<SVGIcon variant="heart" size="28px" color="var( --secondary-color)" />
 						)}
-					</IconButton>
+					</HeartButton>
 					<Typography variant="p">{category}</Typography>
 					<Typography variant="h2">{name}</Typography>
 					<Typography variant="p">{address}</Typography>
-					<Button variant="margin-bottom" onClick={handleOpen}>
-						{show ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-					</Button>
+					<ButtonContainer variant="right">
+						<ArrowButton
+							aria-label="Mehr anzeigen/Weniger anzeigen"
+							onClick={handleOpen}
+						>
+							{show ? (
+								<SVGIcon variant="chevron_up" size="28px" />
+							) : (
+								<SVGIcon variant="chevron_down" size="28px" />
+							)}
+						</ArrowButton>
+					</ButtonContainer>
 					{show && <Typography variant="p">{information}</Typography>}
 					{show && <Typography variant="p">{visited}</Typography>}
 					{show && <Typography variant="p">{rating}</Typography>}
 					<ButtonContainer>
 						{show && (
 							<Button
-								variant="margin-top"
+								variant="margin-top-bottom"
 								onClick={() => {
 									handleDelete();
 									setModalState('delete');
@@ -78,7 +88,7 @@ export default function Card({
 						)}
 						{show && (
 							<Button
-								variant="margin-top"
+								variant="margin-top-bottom"
 								onClick={() => {
 									editEntry(id);
 								}}
